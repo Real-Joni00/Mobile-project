@@ -1,20 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import Home from './screens/Home.js';
+import Cities from './screens/Cities.js';
+import Quiz from './screens/Quiz.js';
+import Profile from './screens/Profile.js';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons} from '@expo/vector-icons';
+import styles from './styles/style.js';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator
+        sceneContainerStyle={{}}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if (route.name === 'Home') {
+                iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Cities') {
+                iconName = focused ? 'map' : 'map-outline';
+            } else if (route.name === 'Quiz') {
+                iconName = focused ? 'help-circle' : 'help-circle-outline';
+            } else if (route.name === 'Profile') {
+                iconName = focused ? 'person' : 'person-outline';
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+      >
+        <Tab.Screen name= 'Home' component={Home} />
+        <Tab.Screen name='Cities' component={Cities} />
+        <Tab.Screen name= 'Quiz' component={Quiz} />
+        <Tab.Screen name= 'Profile' component={Profile} />
+      </Tab.Navigator>
+    </NavigationContainer>
+    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
