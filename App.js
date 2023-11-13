@@ -4,9 +4,11 @@ import Home from './screens/Home.js';
 import Cities from './screens/Cities.js';
 import Quiz from './screens/Quiz.js';
 import Profile from './screens/Profile.js';
+import Header from './components/Header.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons} from '@expo/vector-icons';
+import { getHeaderTitle } from '@react-navigation/elements';
 import styles from './styles/style.js';
 
 const Tab = createBottomTabNavigator();
@@ -17,6 +19,11 @@ export default function App() {
       <Tab.Navigator
         sceneContainerStyle={{}}
         screenOptions={({ route }) => ({
+          header: ({ navigation, route, options }) => {
+            const title = getHeaderTitle(options, route.name);
+          
+            return <Header title={title} style={options.headerStyle} />;
+          },
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             if (route.name === 'Home') {
