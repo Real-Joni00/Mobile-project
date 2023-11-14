@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Home from './screens/Home.js';
 import Cities from './screens/Cities.js';
 import Quiz from './screens/Quiz.js';
@@ -7,7 +6,7 @@ import Profile from './screens/Profile.js';
 import Header from './components/Header.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons} from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { getHeaderTitle } from '@react-navigation/elements';
 import styles from './styles/style.js';
 
@@ -19,32 +18,27 @@ export default function App() {
       <Tab.Navigator
         sceneContainerStyle={{}}
         screenOptions={({ route }) => ({
-          header: ({ navigation, route, options }) => {
-            const title = getHeaderTitle(options, route.name);
-          
-            return <Header title={title} style={options.headerStyle} />;
-          },
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             if (route.name === 'Home') {
-                iconName = focused ? 'home' : 'home-outline';
+              iconName = focused ? 'home' : 'home-outline';
             } else if (route.name === 'Cities') {
-                iconName = focused ? 'map' : 'map-outline';
+              iconName = focused ? 'map' : 'map-outline';
             } else if (route.name === 'Quiz') {
-                iconName = focused ? 'help-circle' : 'help-circle-outline';
+              iconName = focused ? 'help-circle' : 'help-circle-outline';
             } else if (route.name === 'Profile') {
-                iconName = focused ? 'person' : 'person-outline';
+              iconName = focused ? 'person' : 'person-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
       >
-        <Tab.Screen name= 'Home' component={Home} />
+        <Tab.Screen name='Home' component={Home} />
         <Tab.Screen name='Cities' component={Cities} />
-        <Tab.Screen name= 'Quiz' component={Quiz} />
-        <Tab.Screen name= 'Profile' component={Profile} />
+        <Tab.Screen name='Quiz' component={Quiz} />
+        <Tab.Screen name='Profile' component={Profile} />
       </Tab.Navigator>
     </NavigationContainer>
-    
   );
 }

@@ -2,12 +2,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from '../styles/style.js'
 
-const Header = ({ title, style }) => {
+export default function Header() {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>Nordic Insights</Text>
     </View>
   );
 };
-
-export default Header;
