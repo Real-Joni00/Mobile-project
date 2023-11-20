@@ -7,8 +7,35 @@ export default StyleSheet.create({
         justifyContent: 'center',
       },
 
+      flagContainer: {
+        flex: 1,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      flags: {
+        flexBasis: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      flag: {
+        marginTop: 50,
+        height: 130,
+        width: 130,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      flagTitle: {
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold',
+      }, 
+
       header: {
-        position: 'absolute',
         marginTop: 40,
         backgroundColor: 'rgb(148, 30, 216)',
         flexDirection: 'row',
