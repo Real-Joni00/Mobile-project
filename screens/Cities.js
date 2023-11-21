@@ -1,8 +1,9 @@
 import { View, Text, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
-import styles from '../styles/style.js'
+import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
+import styles from '../styles/style.js'
 
 export default Cities = () => {
 
@@ -91,12 +92,14 @@ export default Cities = () => {
                         </View>
                         :
                         <>
+                            <View>
+                                <Ionicons onPress={() => setSelectedCountry('')} name="arrow-back-circle-outline" size={54} color="white" style={styles.back} />
+                            </View>
                             {selectedCountry && citiesByCountry[selectedCountry] && (
-                                <View style={{ marginTop: 20 }}>
+                                <View>
                                     {citiesByCountry[selectedCountry].map((city, index) => (
-                                        <Text key={index} style={{ color: 'white' }}>{city}</Text>
+                                        <Text key={index} style={styles.city}>{city}</Text>
                                     ))}
-                                    <Text onPress={() => setSelectedCountry('')}>Back</Text>
                                 </View>
                             )}
                         </>
