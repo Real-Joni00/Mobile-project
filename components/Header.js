@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styles from '../styles/style.js'
 
 export default function Header() {
   return (
-    <View style={styles.header}>
-      <Text style={styles.title}>Nordic Insights</Text>
-    </View>
+      <View style={styles.headerLogo}>
+        <Image
+          style={styles.imageHeader}
+          source={require('../assets/logos/NordicInsightLogoBig.png')}
+        />    
+        </View>
   );
 };

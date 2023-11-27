@@ -24,18 +24,35 @@ export default StyleSheet.create({
     margin: 10,
   },
 
-  image: {
-    width: 205, 
-    height: 255,
+  imageFront: {
+    width: 200, 
+    height: 250,
     justifyContent: 'center',
     alignItems: 'center'
   },
 
-  frontPageTitle: {
-    fontSize: 32,
+  imageHeader: {
+    width: 300,
+    height: 150
+  },
+
+  headerLogo: {
+    alignItems:'center',
+    marginTop: 30
+  },
+
+  frontTitle: {
+    fontSize: 36,
     color: 'white',
     fontWeight: 'bold',
-    marginTop: 20
+    margin: 20,
+  }, 
+
+  slogan: {
+    fontSize: 18,
+    color: 'white',
+    margin: 20,
+    fontStyle: 'italic'
   }, 
 
   flags: {
@@ -43,7 +60,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
   flag: {
     marginTop: 50,
     height: 130,

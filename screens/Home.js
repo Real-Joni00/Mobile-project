@@ -12,14 +12,14 @@ export default Home = () => {
             locations={[0, 0.5, 1]}
             style={{ flex: 1 }}
         >
-            <Header />
-            <View style={styles.container} >
-                <Image
-                style={styles.image}
-                source={require('../assets/logos/NordicInsightLogoSmall.png')}
-                />
-            <Text style={styles.frontPageTitle}>Nordic Insight</Text>
-            </View>
+          <View style={styles.container} >
+            <Image
+              style={styles.imageFront}
+              source={require('../assets/logos/NordicInsightLogoSmall.png')}
+            />
+            <Text style={styles.frontTitle}>Nordic Insight</Text>
+            <Text style={styles.slogan}>Explore and Understand Nordic cities through data</Text>
+          </View>
         </LinearGradient>
     )
 }
