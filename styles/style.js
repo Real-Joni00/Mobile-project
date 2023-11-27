@@ -9,9 +9,9 @@ export default StyleSheet.create({
 
   flagContainer: {
     flex: 1,
+    marginTop: 40,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
   },
 
@@ -60,11 +60,28 @@ export default StyleSheet.create({
   },
 
   title: {
-    color: 'rgb(23, 58, 255)',
-    fontWeight: 'bold',
+    fontFamily: 'Poppins',
+    color: 'rgb(255, 255, 255)',
     flex: 1,
-    fontSize: 23,
+    fontSize: 25,
     textAlign: 'center',
     margin: 10,
+  },
+
+  text: {
+    fontFamily: 'Akatab',
+    color: 'rgb(255, 255, 255)',
+    fontSize: 30,
+    margin: 30,
+  },
+
+  text2: {
+    fontFamily: 'Akatab',
+    color: 'rgb(255, 255, 255)',
+    fontSize: 23,
+    textAlign: 'center',
+    marginRight: 30,
+    marginLeft: 30,
+    marginTop: 20,
   },
 })

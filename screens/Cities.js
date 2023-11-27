@@ -21,7 +21,7 @@ export default Cities = () => {
     return (
         <>
             <LinearGradient
-                colors={['#77a8d6', '#0c4672', '#7c056e']}
+                colors={['#77a8d6', '#083455', '#7c056e']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
                 locations={[0, 0.5, 1]}
@@ -45,7 +45,7 @@ export default Cities = () => {
 
                             <Pressable onPress={() => setSelectedCountry('Sweden')} style={styles.flags}>
                                 <LinearGradient
-                                    colors={['#FECC00', '#006AA7']}
+                                    colors={['#006AA7', '#FECC00']} 
                                     start={{ x: 0, y: 0 }}
                                     end={{ x: 1, y: 1 }}
                                     locations={[0.4, 1]}
@@ -57,10 +57,10 @@ export default Cities = () => {
 
                             <Pressable onPress={() => setSelectedCountry('Norway')} style={styles.flags}>
                                 <LinearGradient
-                                    colors={['#BA0C2F', '#00205B', '#FFFFFF']}
+                                    colors={['#BA0C2F', '#00205B']}
                                     start={{ x: 0, y: 0 }}
                                     end={{ x: 1, y: 1 }}
-                                    locations={[0.4, 0.5, 1]}
+                                    locations={[0.4, 0.9]}
                                     style={styles.flag}
                                 >
                                     <Text style={styles.flagTitle}>Norway</Text>
@@ -81,10 +81,10 @@ export default Cities = () => {
 
                             <Pressable onPress={() => setSelectedCountry('Iceland')} style={styles.flags}>
                                 <LinearGradient
-                                    colors={['#00529B', '#EE3423', '#FFFFFF']}
+                                    colors={['#00529B', '#EE3423']}
                                     start={{ x: 0, y: 0 }}
                                     end={{ x: 1, y: 1 }}
-                                    locations={[0.4, 0.5, 1]}
+                                    locations={[0.4, 0.9]}
                                     style={styles.flag}
                                 >
                                     <Text style={styles.flagTitle}>Iceland</Text>
