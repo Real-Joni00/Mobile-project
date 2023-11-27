@@ -16,8 +16,8 @@ export default Home = () => {
               style={styles.imageFront}
               source={require('../assets/logos/NordicInsightLogoSmall.png')}
             />
-            <Text style={styles.frontTitle}>Nordic Insight</Text>
-            <Text style={styles.slogan}>Explore and Understand Nordic cities through data</Text>
+            <Text style={styles.frontTitle}>nordic insight</Text>
+            <Text style={styles.slogan}>Explore and understand Nordic cities through data</Text>
           </View>
         </LinearGradient>
     )
