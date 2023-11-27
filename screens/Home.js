@@ -1,5 +1,5 @@
-import { View, Text } from "react-native"
-import { LinearGradient } from 'expo-linear-gradient'
+import { View, Text, Image, } from "react-native"
+import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../styles/style.js'
 
 export default Home = () => {
@@ -11,13 +11,14 @@ export default Home = () => {
             locations={[0, 0.5, 1]}
             style={{ flex: 1 }}
         >
-            <View style={styles.container} >
-                <Text>Logo here</Text>
-
-                <Text style={styles.text}>Nordic Insights</Text>
-
-                <Text style={styles.text2}>Explore and Understand Nordic Cities through data</Text>
-            </View>
+          <View style={styles.container} >
+            <Image
+              style={styles.imageFront}
+              source={require('../assets/logos/NordicInsightLogoSmall.png')}
+            />
+            <Text style={styles.frontTitle}>nordic insight</Text>
+            <Text style={styles.slogan}>Explore and understand Nordic cities through data</Text>
+          </View>
         </LinearGradient>
     )
 }
