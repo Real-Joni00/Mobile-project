@@ -25,8 +25,8 @@ export default StyleSheet.create({
   },
 
   imageFront: {
-    width: 200, 
-    height: 250,
+    width: 222, 
+    height: 275,
     justifyContent: 'center',
     alignItems: 'center'
   },

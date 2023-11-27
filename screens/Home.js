@@ -1,6 +1,5 @@
 import { View, Text, Image, } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
-import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 
 export default Home = () => {
