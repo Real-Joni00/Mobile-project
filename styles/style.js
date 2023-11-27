@@ -15,32 +15,35 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-      title: {
-        color: 'rgb(23, 58, 255)',
-        fontWeight: 'bold',
-        flex: 1,
-        fontSize: 23,
-        textAlign: 'center',
-        margin: 10,
-      },
-      image: {
-        width: 205, 
-        height: 255,
-        justifyContent: 'center',
-        alignItems: 'center'
-      },
-      frontPageTitle: {
-        fontSize: 32,
-        color: 'white',
-        fontWeight: 'bold',
-        marginTop: 20
-      }
+  title: {
+    color: 'rgb(23, 58, 255)',
+    fontWeight: 'bold',
+    flex: 1,
+    fontSize: 23,
+    textAlign: 'center',
+    margin: 10,
+  },
+
+  image: {
+    width: 205, 
+    height: 255,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  frontPageTitle: {
+    fontSize: 32,
+    color: 'white',
+    fontWeight: 'bold',
+    marginTop: 20
+  }, 
+
   flags: {
     flexBasis: '50%',
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  
   flag: {
     marginTop: 50,
     height: 130,
