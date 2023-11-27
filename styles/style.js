@@ -9,19 +9,9 @@ export default StyleSheet.create({
 
   flagContainer: {
     flex: 1,
-    marginTop: 40,
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'center',
-  },
-
-  title: {
-    color: 'rgb(23, 58, 255)',
-    fontWeight: 'bold',
-    flex: 1,
-    fontSize: 23,
-    textAlign: 'center',
-    margin: 10,
   },
 
   imageFront: {
