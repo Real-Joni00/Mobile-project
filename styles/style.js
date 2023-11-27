@@ -22,4 +22,16 @@ export default StyleSheet.create({
         textAlign: 'center',
         margin: 10,
       },
+      image: {
+        width: 205, 
+        height: 255,
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
+      frontPageTitle: {
+        fontSize: 32,
+        color: 'white',
+        fontWeight: 'bold',
+        marginTop: 20
+      }
 })

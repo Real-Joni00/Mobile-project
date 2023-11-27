@@ -1,4 +1,4 @@
-import { View, Text } from "react-native"
+import { View, Text, Image, } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
@@ -14,7 +14,11 @@ export default Home = () => {
         >
             <Header />
             <View style={styles.container} >
-                <Text>Home</Text>
+                <Image
+                style={styles.image}
+                source={require('../assets/logos/NordicInsightLogoSmall.png')}
+                />
+            <Text style={styles.frontPageTitle}>Nordic Insight</Text>
             </View>
         </LinearGradient>
     )
