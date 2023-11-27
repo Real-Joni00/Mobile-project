@@ -7,7 +7,7 @@ import Header from './components/Header.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { getHeaderTitle } from '@react-navigation/elements';
+import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
 
 const Tab = createBottomTabNavigator();
@@ -32,6 +32,7 @@ export default function App() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          tabBarStyle: { backgroundColor: '#50318f' },
         })}
       >
         <Tab.Screen name='Home' component={Home} />
