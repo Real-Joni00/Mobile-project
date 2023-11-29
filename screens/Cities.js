@@ -18,6 +18,19 @@ export default Cities = () => {
         Iceland: ['Reykjavik'],
     };
 
+    //For setting the color for the background of the listed cities
+    const cityBackgroundColors = {
+        Finland: ['#002F6C', '#FFFFFF'],
+        Sweden: ['#006AA7', '#FECC00'],
+        Norway: ['#BA0C2F', '#00205B'],
+        Denmark: ['#C8102E', '#FFFFFF'],
+        Iceland: ['#00529B', '#EE3423'],
+    };
+
+    const getCityBackgroundColors = (country) => {
+        return cityBackgroundColors[country] || ['#FFFFFF', '#FFFFFF'];
+    };
+
     return (
         <>
             <LinearGradient
@@ -45,7 +58,7 @@ export default Cities = () => {
 
                             <Pressable onPress={() => setSelectedCountry('Sweden')} style={styles.flags}>
                                 <LinearGradient
-                                    colors={['#006AA7', '#FECC00']} 
+                                    colors={['#006AA7', '#FECC00']}
                                     start={{ x: 0, y: 0 }}
                                     end={{ x: 1, y: 1 }}
                                     locations={[0.4, 1]}
@@ -99,7 +112,16 @@ export default Cities = () => {
                             {selectedCountry && citiesByCountry[selectedCountry] && (
                                 <View>
                                     {citiesByCountry[selectedCountry].map((city, index) => (
-                                        <Text key={index} style={styles.city}>{city}</Text>
+                                        <LinearGradient
+                                            key={index}
+                                            colors={getCityBackgroundColors(selectedCountry)}
+                                            start={{ x: 0.5, y: 0 }}
+                                            end={{ x: 0.5, y: 1 }}
+                                            locations={[0.7, 1]}
+                                            style={styles.cityBg}
+                                        >
+                                            <Text key={index} style={styles.cityText}>{city}</Text>
+                                        </LinearGradient>
                                     ))}
                                 </View>
                             )}
