@@ -7,7 +7,7 @@ export default function Header() {
       <View style={styles.headerLogo}>
         <Image
           style={styles.imageHeader}
-          source={require('../assets/logos/NordicInsightLogoBig.png')}
+          source={require('../assets/logos/NordicInsightLogoWithText.png')}
         />    
         </View>
   );

@@ -14,7 +14,7 @@ export default Home = () => {
           <View style={styles.container} >
             <Image
               style={styles.imageFront}
-              source={require('../assets/logos/NordicInsightLogoSmall.png')}
+              source={require('../assets/logos/NordicInsightLogo.png')}
             />
             <Text style={styles.frontTitle}>nordic insight</Text>
             <Text style={styles.slogan}>Explore and understand Nordic cities through data</Text>
