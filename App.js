@@ -6,13 +6,24 @@ import Profile from './screens/Profile.js';
 import Header from './components/Header.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
 import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+
+  const [loaded] = useFonts({
+    'Poppins' : require('./assets/fonts/Poppins-SemiBold.ttf'),
+    'Akatab' : require('./assets/fonts/Akatab-Regular.ttf'),
+  })
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -24,15 +35,17 @@ export default function App() {
             if (route.name === 'Home') {
               iconName = focused ? 'home' : 'home-outline';
             } else if (route.name === 'Cities') {
-              iconName = focused ? 'map' : 'map-outline';
+              iconName = focused ? 'city-variant' : 'city-variant-outline';
             } else if (route.name === 'Quiz') {
               iconName = focused ? 'help-circle' : 'help-circle-outline';
             } else if (route.name === 'Profile') {
-              iconName = focused ? 'person' : 'person-outline';
+              iconName = focused ? 'account' : 'account-outline';
             }
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
           },
           tabBarStyle: { backgroundColor: '#50318f' },
+          tabBarActiveTintColor: 'rgb(255, 255, 255)',
+          tabBarInactiveTintColor: 'gray',
         })}
       >
         <Tab.Screen name='Home' component={Home} />

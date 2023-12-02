@@ -3,6 +3,7 @@ import { View, Text, Image } from 'react-native';
 import styles from '../styles/style.js'
 
 export default function Header() {
+
   return (
       <View style={styles.headerLogo}>
         <Image

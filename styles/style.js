@@ -11,17 +11,7 @@ export default StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
-  },
-
-  title: {
-    color: 'rgb(23, 58, 255)',
-    fontWeight: 'bold',
-    flex: 1,
-    fontSize: 23,
-    textAlign: 'center',
-    margin: 10,
   },
 
   imageFront: {
@@ -65,6 +55,9 @@ export default StyleSheet.create({
     marginTop: 50,
     height: 130,
     width: 130,
+    borderWidth: 3,
+    borderRadius: 5,
+    borderColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -75,36 +68,27 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  city: {
-    backgroundColor: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
+  cityBg: {
     margin: 20,
     paddingBottom: 20,
     paddingTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
-    borderRadius: 10,
+    borderWidth: 3,
+    borderRadius: 5,
+    borderColor: 'white',
+  },
+
+  cityText: {
+    color: 'white',
+    backgroundColor: 'transparent',
+    fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 
   back: {
     marginTop: 10,
     marginLeft: 10,
-  },
-
-  header: {
-    marginTop: 40,
-    backgroundColor: 'rgb(148, 30, 216)',
-    flexDirection: 'row',
-  },
-
-  title: {
-    color: 'rgb(23, 58, 255)',
-    fontWeight: 'bold',
-    flex: 1,
-    fontSize: 23,
-    textAlign: 'center',
-    margin: 10,
   },
 })
