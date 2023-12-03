@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import Home from './screens/Home.js';
 import Cities from './screens/Cities.js';
 import Quiz from './screens/Quiz.js';
-import Profile from './screens/Profile.js';
+import Profile from './screens/Login.js';
 import Header from './components/Header.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,8 +16,8 @@ const Tab = createBottomTabNavigator();
 export default function App() {
 
   const [loaded] = useFonts({
-    'Poppins' : require('./assets/fonts/Poppins-SemiBold.ttf'),
-    'Akatab' : require('./assets/fonts/Akatab-Regular.ttf'),
+    'Poppins': require('./assets/fonts/Poppins-SemiBold.ttf'),
+    'Akatab': require('./assets/fonts/Akatab-Regular.ttf'),
   })
 
   if (!loaded) {
@@ -51,7 +51,7 @@ export default function App() {
         <Tab.Screen name='Home' component={Home} />
         <Tab.Screen name='Cities' component={Cities} />
         <Tab.Screen name='Quiz' component={Quiz} />
-        <Tab.Screen name='Profile' component={Profile} />
+        <Tab.Screen name='Profile' component={Login} />
       </Tab.Navigator>
     </NavigationContainer>
   );

@@ -91,4 +91,48 @@ export default StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
   },
+
+  header: {
+    color: 'white',
+    fontSize: 40,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 80,
+    marginBottom: 40
+  },
+
+  label: {
+    color: 'white',
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    marginLeft: 30
+  },
+
+  textInput: {
+    color: 'white',
+    marginLeft: 30,
+    borderWidth: 3,
+    marginRight: 30,
+    borderColor: 'white',
+    borderRadius: 15,
+    marginBottom: 30,
+    marginTop: 20,
+    fontSize: 20,
+    padding: 8,
+  },
+
+  forgotPassword: {
+    color: 'white',
+    fontSize: 18,
+    marginLeft: 30,
+  },
+
+  user: {
+    color: 'white',
+    marginTop: 40,
+    fontSize: 18,
+    marginLeft: 30
+  },
+
 })
