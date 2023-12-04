@@ -60,7 +60,7 @@ export default Cities = () => {
                                         start={{ x: 0, y: 0 }}
                                         end={{ x: 1, y: 1 }}
                                         locations={[0.4, 1]}
-                                        style={styles.flag}
+                                        style={[styles.flag, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
                                     >
                                         <Text style={[styles.flagTitle, { color: pressed ? '#000000' : '#FFFFFF' }]}>Finland</Text>
                                     </LinearGradient>
@@ -74,7 +74,7 @@ export default Cities = () => {
                                         start={{ x: 0, y: 0 }}
                                         end={{ x: 1, y: 1 }}
                                         locations={[0.4, 1]}
-                                        style={styles.flag}
+                                        style={[styles.flag, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
                                     >
                                         <Text style={[styles.flagTitle, { color: pressed ? '#000000' : '#FFFFFF' }]}>Sweden</Text>
                                     </LinearGradient>
@@ -88,7 +88,7 @@ export default Cities = () => {
                                         start={{ x: 0, y: 0 }}
                                         end={{ x: 1, y: 1 }}
                                         locations={[0.4, 0.9]}
-                                        style={styles.flag}
+                                        style={[styles.flag, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
                                     >
                                         <Text style={[styles.flagTitle, { color: pressed ? '#000000' : '#FFFFFF' }]}>Norway</Text>
                                     </LinearGradient>
@@ -102,7 +102,7 @@ export default Cities = () => {
                                         start={{ x: 0, y: 0 }}
                                         end={{ x: 1, y: 1 }}
                                         locations={[0.4, 1]}
-                                        style={styles.flag}
+                                        style={[styles.flag, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
                                     >
                                         <Text style={[styles.flagTitle, { color: pressed ? '#000000' : '#FFFFFF' }]}>Denmark</Text>
                                     </LinearGradient>
@@ -116,7 +116,7 @@ export default Cities = () => {
                                         start={{ x: 0, y: 0 }}
                                         end={{ x: 1, y: 1 }}
                                         locations={[0.4, 0.9]}
-                                        style={styles.flag}
+                                        style={[styles.flag, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
                                     >
                                         <Text style={[styles.flagTitle, { color: pressed ? '#000000' : '#FFFFFF' }]}>Iceland</Text>
                                     </LinearGradient>
@@ -142,16 +142,20 @@ export default Cities = () => {
                             {selectedCountry && citiesByCountry[selectedCountry] && (
                                 <View>
                                     {citiesByCountry[selectedCountry].map((city, index) => (
+                                        <Pressable key={index}>
+                                            {({ pressed }) => (
                                         <LinearGradient
                                             key={index}
                                             colors={getCityBackgroundColors(selectedCountry)}
                                             start={{ x: 0.5, y: 0 }}
                                             end={{ x: 0.5, y: 1 }}
                                             locations={[0.7, 1]}
-                                            style={styles.cityBg}
+                                            style={[styles.cityBg, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
                                         >
-                                            <Text key={index} style={styles.cityText}>{city}</Text>
+                                            <Text key={index} style={[styles.cityText, {color: pressed ? '#000000' : '#FFFFFF'}]}>{city}</Text>
                                         </LinearGradient>
+                                        )}
+                                        </Pressable>
                                     ))}
                                 </View>
                             )}
