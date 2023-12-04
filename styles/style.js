@@ -97,7 +97,7 @@ export default StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 80,
+    marginTop: 60,
     marginBottom: 40
   },
 
@@ -124,15 +124,17 @@ export default StyleSheet.create({
 
   forgotPassword: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 16,
     marginLeft: 30,
+    textDecorationLine: 'underline',
   },
 
   user: {
     color: 'white',
     marginTop: 40,
-    fontSize: 18,
-    marginLeft: 30
+    fontSize: 16,
+    marginLeft: 30,
+    textDecorationLine: 'underline',
   },
 
 })

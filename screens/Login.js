@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable, } from "react-native"
+import { View, Text, TextInput, Pressable, KeyboardAvoidingView } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
@@ -15,6 +15,10 @@ export default Login = () => {
           style={{ flex: 1 }}
       >
         <Header />
+        <KeyboardAvoidingView
+        behavior="height" 
+        style={{ flex: 1 }}
+      >
           <View>
             <ScrollView>
               <Text style={styles.header}>LOGIN</Text>
@@ -39,6 +43,7 @@ export default Login = () => {
               </Pressable>
             </ScrollView>
           </View>
+          </KeyboardAvoidingView>
       </LinearGradient>
   )
 }
