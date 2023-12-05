@@ -10,7 +10,6 @@ export default Login = ({ navigation }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handlePress = () => {
     if (!email) {
