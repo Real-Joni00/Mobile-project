@@ -2,16 +2,20 @@ import { View } from 'react-native';
 import Home from './screens/Home.js';
 import Cities from './screens/Cities.js';
 import Quiz from './screens/Quiz.js';
-import Profile from './screens/Login.js';
+import Login from './screens/Login.js';
 import Header from './components/Header.js';
+import Register from './screens/Register.js';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
 
+
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
 

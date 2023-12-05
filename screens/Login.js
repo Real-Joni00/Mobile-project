@@ -3,9 +3,32 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 import { ScrollView } from "react-native";
+import { useState } from "react";
 
 
-export default Login = () => {
+export default Login = ({ navigation }) => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handlePress = () => {
+    if (!email) {
+      Alert.alert('Email is required');
+    }
+    else if (!password) {
+      Alert.alert('Password is required');
+    }
+    else {
+      signIn(email, password);
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          navigation.navigate('Todo', { userUid: user.uid });
+        }
+      });
+    }
+  }
+
   return (
       <LinearGradient
           colors={['#77a8d6', '#083455', '#7c056e']}
@@ -28,6 +51,10 @@ export default Login = () => {
                 placeholder="Enter your email"
                 maxLength={100}
                 placeholderTextColor={'white'}
+                value={email}
+                onChangeText={(email) => setEmail(email.trim())}
+                keyboardType="email-address"
+                autoCapitalize="none"
               />
               <Text style={styles.label}>Password</Text>
               <TextInput
@@ -36,9 +63,11 @@ export default Login = () => {
                 placeholder="Enter your password"
                 maxLength={40}
                 placeholderTextColor={'white'}
+                value={password}
+                onChangeText={(password) => setPassword(password)}
               />
               <Text style={styles.forgotPassword}>Forgot password?</Text>
-              <Pressable>
+              <Pressable onPress={() => navigation.navigate('Register')}>
                 <Text style={styles.user}>Are you a new user?</Text>
               </Pressable>
             </ScrollView>

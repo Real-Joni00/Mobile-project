@@ -1,9 +1,12 @@
-import { View, Text, TextInput } from "react-native"
+import { View, Text, TextInput, ScrollView, Pressable } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 
 export default Register = () => {
+
+    
+
     return (
         <LinearGradient
             colors={['#77a8d6', '#083455', '#7c056e']}
