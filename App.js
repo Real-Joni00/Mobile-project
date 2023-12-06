@@ -68,7 +68,10 @@ export default function App() {
 
 function StackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+      headerShown: false
+      }}>
       <Stack.Screen name='CitiesScreen' component={Cities}/>
       <Stack.Screen name='Helsinki' component={Helsinki}/>
     </Stack.Navigator>
