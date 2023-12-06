@@ -12,6 +12,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
+import 'react-native-gesture-handler';
+
+import Helsinki from './screens/StackNavigationCities/Helsinki.js';
 
 
 const Tab = createBottomTabNavigator();
@@ -53,10 +56,21 @@ export default function App() {
         })}
       >
         <Tab.Screen name='Home' component={Home} />
-        <Tab.Screen name='Cities' component={Cities} />
+        <Tab.Screen name='Cities' component={StackNavigator} />
         <Tab.Screen name='Quiz' component={Quiz} />
         <Tab.Screen name='Profile' component={Login} />
       </Tab.Navigator>
     </NavigationContainer>
   );
+}
+
+// Stacknavin testailua -> toimii
+
+function StackNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='CitiesScreen' component={Cities}/>
+      <Stack.Screen name='Helsinki' component={Helsinki}/>
+    </Stack.Navigator>
+  )
 }

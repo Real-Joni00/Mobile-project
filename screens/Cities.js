@@ -5,8 +5,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { BlurView } from 'expo-blur';
 import styles from '../styles/style.js'
+import { useNavigation } from '@react-navigation/native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default Cities = () => {
+
+    const navigation = useNavigation()
 
     const [selectedCountry, setSelectedCountry] = useState('')
     const [isPressed, setIsPressed] = useState(false)
@@ -41,7 +45,7 @@ export default Cities = () => {
     };
 
     return (
-        <>
+        <ScrollView>
             <LinearGradient
                 colors={['#77a8d6', '#083455', '#7c056e']}
                 start={{ x: 0, y: 0 }}
@@ -159,11 +163,18 @@ export default Cities = () => {
                                     ))}
                                 </View>
                             )}
+
+                            {/* StackNavin testailua -> toimii, pitää viel yhistää koodiin */}
+
+                            <View>
+                                 <Pressable onPress={() => navigation.navigate('Helsinki')}>
+                                    <Text>Go to Helsinki screen</Text></Pressable>   
+                            </View>
                         </>
                     }
                 </>
 
             </LinearGradient>
-        </>
+        </ScrollView>
     )
 }
