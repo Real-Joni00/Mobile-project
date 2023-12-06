@@ -14,7 +14,10 @@ import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
 import 'react-native-gesture-handler';
 
+// Importing cities files for stack navigator
+
 import Helsinki from './screens/StackNavigationCities/Helsinki.js';
+import Tampere from './screens/StackNavigationCities/Tampere.js';
 
 
 const Tab = createBottomTabNavigator();
@@ -64,7 +67,7 @@ export default function App() {
   );
 }
 
-// Stacknavin testailua -> toimii
+// Stack navigator to navigate through screens inside screens
 
 function StackNavigator() {
   return (
@@ -74,6 +77,7 @@ function StackNavigator() {
       }}>
       <Stack.Screen name='CitiesScreen' component={Cities}/>
       <Stack.Screen name='Helsinki' component={Helsinki}/>
+      <Stack.Screen name='Tampere' component={Tampere}/>
     </Stack.Navigator>
   )
 }
