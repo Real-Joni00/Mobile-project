@@ -159,7 +159,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 20,
     margin: 15,
   }
 })
