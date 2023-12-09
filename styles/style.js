@@ -146,6 +146,15 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
+  alreadyUser: {
+    color: 'white',
+    marginTop: 40,
+    marginBottom: 30,
+    fontSize: 16,
+    marginLeft: 30,
+    textDecorationLine: 'underline',
+  },
+
   button: {
     borderRadius: 20,
     borderWidth: 3,

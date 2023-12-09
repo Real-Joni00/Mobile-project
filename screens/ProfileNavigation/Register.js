@@ -1,9 +1,10 @@
-import { View, Text, TextInput, ScrollView, Pressable } from "react-native"
+import { View, Text, TextInput, ScrollView, Pressable, KeyboardAvoidingView } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../components/Header.js'
 import styles from '../../styles/style.js'
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from "react";
+
 
 export default Register = ({ navigation }) => {
 
@@ -34,9 +35,12 @@ export default Register = ({ navigation }) => {
             style={{ flex: 1 }}
         >
           <Header />
-
+          <KeyboardAvoidingView
+          behavior="height"
+          style={{ flex: 1 }}
+          >
           <View>
-            <Pressable onPress={() => setSelectedScreen('Login')} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+            <Pressable onPress={() => navigation.goBack()}>
               {({ pressed }) => (
                 <Ionicons
                   name="arrow-back-circle-outline"
@@ -47,8 +51,6 @@ export default Register = ({ navigation }) => {
               )}
             </Pressable>
           </View>
-
-          <View>
             <ScrollView>
               <Text style={styles.header}>Register</Text>
               <Text style={styles.label}>Email</Text>
@@ -74,11 +76,14 @@ export default Register = ({ navigation }) => {
                 maxLength={40}
                 placeholderTextColor={'white'}
               />
-              <Pressable>
-                <Text style={styles.user}>Already a user?</Text>
+              <Pressable style={styles.button}>
+                <Text style={styles.buttonText}>CREATE USER</Text>
+              </Pressable>
+              <Pressable onPress={() => navigation.goBack()}>
+                <Text style={styles.alreadyUser}>Already a user? Login here</Text>
               </Pressable>
             </ScrollView>
-          </View>
+          </KeyboardAvoidingView>
         </LinearGradient>
     )
 }

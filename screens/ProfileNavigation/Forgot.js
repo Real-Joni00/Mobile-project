@@ -4,12 +4,14 @@ import Header from "../../components/Header.js";
 import styles from "../../styles/style.js";
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from "react-native";
-import { useState } from "react";
-import { Button } from "react-native";
+import { useEffect, useState } from "react";
 
-export default Forgot = () => {
+export default Forgot = ({ navigation }) => {
 
   const [email, setEmail] = useState('');
+  const [isPressed, setIsPressed] = useState(false);
+  const [selectedScreen, setSelectedScreen] = useState('');
+
 
   const handlePressIn = () => {
     setIsPressed(true);
@@ -19,7 +21,16 @@ export default Forgot = () => {
     setIsPressed(false);
   };
 
+  useEffect(() => {
+    if (isPressed === true) {
+      navigation.navigate('Login')
+    }
+  })
 
+  function allOnPressed() {
+    navigation.goBack();
+    
+  }
     return (
       <LinearGradient
           colors={['#77a8d6', '#083455', '#7c056e']}
@@ -34,7 +45,7 @@ export default Forgot = () => {
               style={{ flex: 1 }}
           >
               <View>
-                <Pressable onPress={() => setSelectedScreen('Login')} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+                <Pressable onPress={() => navigation.goBack()}>
                   {({ pressed }) => (
                     <Ionicons
                         name="arrow-back-circle-outline"

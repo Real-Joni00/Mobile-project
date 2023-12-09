@@ -4,9 +4,6 @@ import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 import { ScrollView } from "react-native";
 import { useEffect, useState } from "react";
-import { Register } from '../screens/ProfileNavigation/Register.js';
-import { useNavigation, useTheme } from "@react-navigation/native";
-import { Forgot } from '../screens/ProfileNavigation/Forgot.js';
 
 
 export default Login = ({ navigation }) => {
