@@ -101,6 +101,16 @@ export default StyleSheet.create({
     marginBottom: 40
   },
 
+  headerForgot: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  },
+
+
   label: {
     color: 'white',
     fontSize: 26,

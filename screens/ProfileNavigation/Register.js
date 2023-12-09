@@ -1,11 +1,29 @@
 import { View, Text, TextInput, ScrollView, Pressable } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
-import Header from '../components/Header.js'
-import styles from '../styles/style.js'
+import Header from '../../components/Header.js'
+import styles from '../../styles/style.js'
+import { Ionicons } from '@expo/vector-icons';
+import { useEffect, useState } from "react";
 
-export default Register = () => {
+export default Register = ({ navigation }) => {
 
-    
+  const [isPressed, setIsPressed] = useState(false);
+  const [selectedScreen, setSelectedScreen] = useState('');
+
+
+  const handlePressIn = () => {
+    setIsPressed(true);
+  };
+
+  const handlePressOut = () => {
+    setIsPressed(false);
+  };
+
+  useEffect(() => {
+    if (selectedScreen === 'Login') {
+      navigation.navigate('Login')
+    } 
+  })
 
     return (
         <LinearGradient
@@ -16,6 +34,20 @@ export default Register = () => {
             style={{ flex: 1 }}
         >
           <Header />
+
+          <View>
+            <Pressable onPress={() => setSelectedScreen('Login')} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+              {({ pressed }) => (
+                <Ionicons
+                  name="arrow-back-circle-outline"
+                  size={54}
+                  color={pressed ? '#000000' : '#FFFFFF'}
+                  style={styles.back}
+                />
+              )}
+            </Pressable>
+          </View>
+
           <View>
             <ScrollView>
               <Text style={styles.header}>Register</Text>

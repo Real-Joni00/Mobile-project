@@ -3,13 +3,17 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 import { ScrollView } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Register } from '../screens/ProfileNavigation/Register.js';
+import { useNavigation, useTheme } from "@react-navigation/native";
+import { Forgot } from '../screens/ProfileNavigation/Forgot.js';
 
 
 export default Login = ({ navigation }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [selectedScreen, setSelectedScreen] = useState('');
 
   const handlePress = () => {
     if (!email) {
@@ -22,11 +26,21 @@ export default Login = ({ navigation }) => {
       signIn(email, password);
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          navigation.navigate('Todo', { userUid: user.uid });
+          navigation.navigate('Profile', { userUid: user.uid });
         }
       });
     }
   }
+
+  useEffect(() => {
+    if (selectedScreen === 'Register') {
+      navigation.navigate('Register')
+      setSelectedScreen('')
+    } else if (selectedScreen === 'Forgot') {
+      navigation.navigate('Forgot')
+      setSelectedScreen()
+    }
+  })
 
   return (
       <LinearGradient
@@ -65,7 +79,9 @@ export default Login = ({ navigation }) => {
                 value={password}
                 onChangeText={(password) => setPassword(password)}
               />
-              <Text style={styles.forgotPassword}>Forgot password?</Text>
+              <Pressable onPress={() => navigation.navigate('Forgot')}>
+                <Text style={styles.forgotPassword}>Forgot password?</Text>
+              </Pressable>
               <Pressable onPress={() => navigation.navigate('Register')}>
                 <Text style={styles.user}>Are you a new user?</Text>
               </Pressable>
