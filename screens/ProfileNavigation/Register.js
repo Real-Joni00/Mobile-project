@@ -80,7 +80,7 @@ export default Register = ({ navigation }) => {
                 <Text style={styles.buttonText}>CREATE USER</Text>
               </Pressable>
               <Pressable onPress={() => navigation.goBack()}>
-                <Text style={styles.alreadyUser}>Already a user? Login here</Text>
+                <Text style={styles.profileBottomText}>Already a user? Login here</Text>
               </Pressable>
             </ScrollView>
           </KeyboardAvoidingView>

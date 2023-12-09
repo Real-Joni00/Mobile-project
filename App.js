@@ -14,6 +14,8 @@ import { useFonts } from 'expo-font';
 import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
 import 'react-native-gesture-handler';
+import Confirm from './screens/ProfileNavigation/Confirm.js';
+import LoggedUser from './screens/ProfileNavigation/LoggedUser.js';
 
 // Importing cities files for stack navigator
 
@@ -89,9 +91,11 @@ function StackNavigatorProfile() {
     screenOptions={{
       headerShown: false
     }}>
-      <Stack.Screen name='ProfileScreen' component={Login} />
+      <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Register' component={Register} />
       <Stack.Screen name='Forgot' component={Forgot} />
+      <Stack.Screen name='Confirm' component={Confirm} />
+      <Stack.Screen name='LoggedUser' component={LoggedUser} />
     </Stack.Navigator>
   )
 }

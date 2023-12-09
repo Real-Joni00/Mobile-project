@@ -69,7 +69,7 @@ export default Forgot = ({ navigation }) => {
                   keyboardType="email-address"
                   autoCapitalize="none"
               />
-              <Pressable style={styles.button}>
+              <Pressable style={styles.button} onPress={() => navigation.navigate('Confirm')}>
                 <Text style={styles.buttonText}>SEND VERIFICATION CODE</Text>
               </Pressable>
               </ScrollView>

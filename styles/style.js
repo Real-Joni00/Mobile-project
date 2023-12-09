@@ -146,7 +146,7 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
-  alreadyUser: {
+  profileBottomText: {
     color: 'white',
     marginTop: 40,
     marginBottom: 30,
@@ -160,7 +160,8 @@ export default StyleSheet.create({
     borderWidth: 3,
     borderColor: 'white',
     marginHorizontal: 30,
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 30
   },
 
   buttonText: {

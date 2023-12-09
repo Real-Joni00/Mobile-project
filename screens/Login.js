@@ -48,11 +48,11 @@ export default Login = ({ navigation }) => {
           style={{ flex: 1 }}
       >
         <Header />
+
         <KeyboardAvoidingView
         behavior="height" 
         style={{ flex: 1 }}
       >
-          <View>
             <ScrollView>
               <Text style={styles.header}>LOGIN</Text>
               <Text style={styles.label}>Email</Text>
@@ -66,6 +66,7 @@ export default Login = ({ navigation }) => {
                 keyboardType="email-address"
                 autoCapitalize="none"
               />
+
               <Text style={styles.label}>Password</Text>
               <TextInput
                 style={styles.textInput}
@@ -76,14 +77,20 @@ export default Login = ({ navigation }) => {
                 value={password}
                 onChangeText={(password) => setPassword(password)}
               />
+
+              <Pressable style={styles.button}>
+               <Text style={styles.buttonText}>LOGIN</Text>
+              </Pressable>
+
               <Pressable onPress={() => navigation.navigate('Forgot')}>
                 <Text style={styles.forgotPassword}>Forgot password?</Text>
               </Pressable>
+
               <Pressable onPress={() => navigation.navigate('Register')}>
                 <Text style={styles.user}>Are you a new user?</Text>
               </Pressable>
+              
             </ScrollView>
-          </View>
           </KeyboardAvoidingView>
       </LinearGradient>
   )
