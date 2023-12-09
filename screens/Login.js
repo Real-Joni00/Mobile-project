@@ -78,7 +78,7 @@ export default Login = ({ navigation }) => {
                 onChangeText={(password) => setPassword(password)}
               />
 
-              <Pressable style={styles.button}>
+              <Pressable style={styles.button} onPress={() => navigation.navigate('LoggedUser')}>
                <Text style={styles.buttonText}>LOGIN</Text>
               </Pressable>
 
@@ -87,9 +87,9 @@ export default Login = ({ navigation }) => {
               </Pressable>
 
               <Pressable onPress={() => navigation.navigate('Register')}>
-                <Text style={styles.user}>Are you a new user?</Text>
+                <Text style={styles.user}>Are you a new user? You need to register first.</Text>
               </Pressable>
-              
+
             </ScrollView>
           </KeyboardAvoidingView>
       </LinearGradient>

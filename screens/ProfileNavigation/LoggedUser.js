@@ -54,42 +54,7 @@ export default LoggedUser = ({ navigation }) => {
                 style={{ flex: 1 }}
             >
                 <ScrollView>
-                    <Text style={styles.header}>LOGIN</Text>
-                    <Text style={styles.label}>Email</Text>
-                    <TextInput
-                        style={styles.textInput}
-                        placeholder="Enter your email"
-                        maxLength={100}
-                        placeholderTextColor={'white'}
-                        value={email}
-                        onChangeText={(email) => setEmail(email.trim())}
-                        keyboardType="email-address"
-                        autoCapitalize="none"
-                    />
-
-                    <Text style={styles.label}>Password</Text>
-                    <TextInput
-                        style={styles.textInput}
-                        secureTextEntry={true}
-                        placeholder="Enter your password"
-                        maxLength={40}
-                        placeholderTextColor={'white'}
-                        value={password}
-                        onChangeText={(password) => setPassword(password)}
-                    />
-
-                    <Pressable style={styles.button}>
-                        <Text style={styles.buttonText}>LOGIN</Text>
-                    </Pressable>
-
-                    <Pressable onPress={() => navigation.navigate('Forgot')}>
-                        <Text style={styles.forgotPassword}>Forgot password?</Text>
-                    </Pressable>
-
-                    <Pressable onPress={() => navigation.navigate('Register')}>
-                        <Text style={styles.user}>Are you a new user?</Text>
-                    </Pressable>
-
+                    <Text style={styles.header}>Hello user!</Text>
                 </ScrollView>
             </KeyboardAvoidingView>
         </LinearGradient>

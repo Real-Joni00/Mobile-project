@@ -8,24 +8,6 @@ import { useEffect, useState } from "react";
 
 export default Register = ({ navigation }) => {
 
-  const [isPressed, setIsPressed] = useState(false);
-  const [selectedScreen, setSelectedScreen] = useState('');
-
-
-  const handlePressIn = () => {
-    setIsPressed(true);
-  };
-
-  const handlePressOut = () => {
-    setIsPressed(false);
-  };
-
-  useEffect(() => {
-    if (selectedScreen === 'Login') {
-      navigation.navigate('Login')
-    } 
-  })
-
     return (
         <LinearGradient
             colors={['#77a8d6', '#083455', '#7c056e']}
@@ -76,7 +58,7 @@ export default Register = ({ navigation }) => {
                 maxLength={40}
                 placeholderTextColor={'white'}
               />
-              <Pressable style={styles.button}>
+              <Pressable style={styles.button} onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.buttonText}>CREATE USER</Text>
               </Pressable>
               <Pressable onPress={() => navigation.goBack()}>
