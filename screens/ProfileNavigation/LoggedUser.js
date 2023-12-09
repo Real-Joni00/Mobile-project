@@ -54,7 +54,7 @@ export default LoggedUser = ({ navigation }) => {
                 style={{ flex: 1 }}
             >
                 <ScrollView>
-                    <Text style={styles.header}>Hello user!</Text>
+                    <Text style={styles.header}>Hello User!</Text>
                 </ScrollView>
             </KeyboardAvoidingView>
         </LinearGradient>
