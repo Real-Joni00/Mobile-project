@@ -58,8 +58,9 @@ export default Forgot = () => {
                   keyboardType="email-address"
                   autoCapitalize="none"
               />
-              <Button 
-                title="Send verification code"/>
+              <Pressable style={styles.button}>
+                <Text style={styles.buttonText}>SEND VERIFICATION CODE</Text>
+              </Pressable>
               </ScrollView>
           </KeyboardAvoidingView>
       </LinearGradient>

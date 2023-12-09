@@ -121,9 +121,8 @@ export default StyleSheet.create({
 
   textInput: {
     color: 'white',
-    marginLeft: 30,
+    marginHorizontal: 30,
     borderWidth: 3,
-    marginRight: 30,
     borderColor: 'white',
     borderRadius: 15,
     marginBottom: 30,
@@ -147,4 +146,19 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
+  button: {
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 20,
+    borderWidth: 3,
+    borderColor: 'white',
+    marginHorizontal: 30
+  },
+
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    textAlignVertical: 'center'
+  }
 })
