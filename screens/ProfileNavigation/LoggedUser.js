@@ -7,38 +7,6 @@ import { useEffect, useState } from "react";
 
 
 export default LoggedUser = ({ navigation }) => {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [selectedScreen, setSelectedScreen] = useState('');
-
-    const handlePress = () => {
-        if (!email) {
-            Alert.alert('Email is required');
-        }
-        else if (!password) {
-            Alert.alert('Password is required');
-        }
-        else {
-            signIn(email, password);
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    navigation.navigate('Profile', { userUid: user.uid });
-                }
-            });
-        }
-    }
-
-    useEffect(() => {
-        if (selectedScreen === 'Register') {
-            navigation.navigate('Register')
-            setSelectedScreen('')
-        } else if (selectedScreen === 'Forgot') {
-            navigation.navigate('Forgot')
-            setSelectedScreen()
-        }
-    })
-
     return (
         <LinearGradient
             colors={['#77a8d6', '#083455', '#7c056e']}
