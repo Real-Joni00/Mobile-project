@@ -148,17 +148,18 @@ export default StyleSheet.create({
 
   button: {
     borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20,
     borderWidth: 3,
     borderColor: 'white',
-    marginHorizontal: 30
+    marginHorizontal: 30,
+    marginTop: 20
   },
 
   buttonText: {
     color: 'white',
     textAlign: 'center',
-    textAlignVertical: 'center'
+    textAlignVertical: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+    margin: 15,
   }
 })
