@@ -110,6 +110,18 @@ export default StyleSheet.create({
     marginBottom: 40
   },
 
+  quizStart: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 15,
+    padding: 10,
+    marginTop: 20,
+    marginBottom: 20,
+  },
 
   label: {
     color: 'white',
