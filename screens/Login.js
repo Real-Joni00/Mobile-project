@@ -3,13 +3,14 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 import { ScrollView } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default Login = ({ navigation }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [selectedScreen, setSelectedScreen] = useState('');
 
   const handlePress = () => {
     if (!email) {
@@ -22,11 +23,21 @@ export default Login = ({ navigation }) => {
       signIn(email, password);
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          navigation.navigate('Todo', { userUid: user.uid });
+          navigation.navigate('Profile', { userUid: user.uid });
         }
       });
     }
   }
+
+  useEffect(() => {
+    if (selectedScreen === 'Register') {
+      navigation.navigate('Register')
+      setSelectedScreen('')
+    } else if (selectedScreen === 'Forgot') {
+      navigation.navigate('Forgot')
+      setSelectedScreen()
+    }
+  })
 
   return (
       <LinearGradient
@@ -37,11 +48,11 @@ export default Login = ({ navigation }) => {
           style={{ flex: 1 }}
       >
         <Header />
+
         <KeyboardAvoidingView
         behavior="height" 
         style={{ flex: 1 }}
       >
-          <View>
             <ScrollView>
               <Text style={styles.header}>LOGIN</Text>
               <Text style={styles.label}>Email</Text>
@@ -55,6 +66,7 @@ export default Login = ({ navigation }) => {
                 keyboardType="email-address"
                 autoCapitalize="none"
               />
+
               <Text style={styles.label}>Password</Text>
               <TextInput
                 style={styles.textInput}
@@ -65,12 +77,20 @@ export default Login = ({ navigation }) => {
                 value={password}
                 onChangeText={(password) => setPassword(password)}
               />
-              <Text style={styles.forgotPassword}>Forgot password?</Text>
-              <Pressable onPress={() => navigation.navigate('Register')}>
-                <Text style={styles.user}>Are you a new user?</Text>
+
+              <Pressable style={styles.button} onPress={() => navigation.navigate('LoggedUser')}>
+               <Text style={styles.buttonText}>LOGIN</Text>
               </Pressable>
+
+              <Pressable onPress={() => navigation.navigate('Forgot')}>
+                <Text style={styles.forgotPassword}>Forgot password?</Text>
+              </Pressable>
+
+              <Pressable onPress={() => navigation.navigate('Register')}>
+                <Text style={styles.user}>Are you a new user? You need to register first.</Text>
+              </Pressable>
+
             </ScrollView>
-          </View>
           </KeyboardAvoidingView>
       </LinearGradient>
   )

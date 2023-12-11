@@ -4,7 +4,8 @@ import Cities from './screens/Cities.js';
 import Quiz from './screens/Quiz.js';
 import Login from './screens/Login.js';
 import Header from './components/Header.js';
-import Register from './screens/Register.js';
+import Register from './screens/ProfileNavigation/Register.js';
+import Forgot from './screens/ProfileNavigation/Forgot.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,6 +14,8 @@ import { useFonts } from 'expo-font';
 import { BlurView } from 'expo-blur';
 import styles from './styles/style.js';
 import 'react-native-gesture-handler';
+import Confirm from './screens/ProfileNavigation/Confirm.js';
+import LoggedUser from './screens/ProfileNavigation/LoggedUser.js';
 
 // Importing cities files for stack navigator
 
@@ -88,7 +91,7 @@ export default function App() {
         <Tab.Screen name='Home' component={Home} />
         <Tab.Screen name='Cities' component={StackNavigator} />
         <Tab.Screen name='Quiz' component={Quiz} />
-        <Tab.Screen name='Profile' component={Login} />
+        <Tab.Screen name='Profile' component={StackNavigatorProfile} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -120,6 +123,21 @@ function StackNavigator() {
       <Stack.Screen name='Odense' component={Odense}/>
       <Stack.Screen name='Aalborg' component={Aalborg}/>
       <Stack.Screen name='Reykjavik' component={Reykjavik}/>
+    </Stack.Navigator>
+  )
+}
+
+function StackNavigatorProfile() {
+  return(
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false
+    }}>
+      <Stack.Screen name='Login' component={Login} />
+      <Stack.Screen name='Register' component={Register} />
+      <Stack.Screen name='Forgot' component={Forgot} />
+      <Stack.Screen name='Confirm' component={Confirm} />
+      <Stack.Screen name='LoggedUser' component={LoggedUser} />
     </Stack.Navigator>
   )
 }

@@ -101,6 +101,28 @@ export default StyleSheet.create({
     marginBottom: 40
   },
 
+  headerForgot: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  },
+
+  quizStart: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 15,
+    padding: 10,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+
   label: {
     color: 'white',
     fontSize: 26,
@@ -111,9 +133,8 @@ export default StyleSheet.create({
 
   textInput: {
     color: 'white',
-    marginLeft: 30,
+    marginHorizontal: 30,
     borderWidth: 3,
-    marginRight: 30,
     borderColor: 'white',
     borderRadius: 15,
     marginBottom: 30,
@@ -137,4 +158,30 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
   },
 
+  profileBottomText: {
+    color: 'white',
+    marginTop: 40,
+    marginBottom: 30,
+    fontSize: 16,
+    marginLeft: 30,
+    textDecorationLine: 'underline',
+  },
+
+  button: {
+    borderRadius: 20,
+    borderWidth: 3,
+    borderColor: 'white',
+    marginHorizontal: 30,
+    marginTop: 20,
+    marginBottom: 30
+  },
+
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    margin: 15,
+  }
 })
