@@ -19,19 +19,19 @@ export default LoggedUser = ({ navigation }) => {
         <ScrollView>
             <Text style={styles.header}>Hello User!</Text>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Manage')}>
-            <Ionicons color='white' name='settings' size={24}><Text style={styles.profile}> Manage my profile</Text></Ionicons>
+            <Ionicons color='white' name='settings' size={26}><Text style={styles.profile}> Manage my profile</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Searches')}> 
-            <Ionicons color='white' name='save' size={24}><Text style={styles.profile}> Saved searches</Text></Ionicons>
+            <Ionicons color='white' name='save' size={26}><Text style={styles.profile}> Saved searches</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Results')}>
-            <Ionicons color='white' name='trophy' size={24}><Text style={styles.profile}> My top quiz results</Text></Ionicons>
+            <Ionicons color='white' name='trophy' size={26}><Text style={styles.profile}> My top quiz results</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('About')}>
-            <Ionicons color='white' name='information' size={24}><Text style={styles.profile}> About us</Text></Ionicons>
+            <Ionicons color='white' name='information' size={26}><Text style={styles.profile}> About us</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.logout} onPress={() => navigation.navigate('Login')}>
-            <Ionicons color='white' name='log-out' size={24}><Text style={styles.profile}> Log out</Text></Ionicons>
+            <Ionicons color='white' name='log-out' size={26}><Text style={styles.profile}> Log out</Text></Ionicons>
             </Pressable>
         </ScrollView>
 
