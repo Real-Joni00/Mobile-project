@@ -88,7 +88,7 @@ function StackNavigator() {
 function StackNavigatorProfile() {
   return(
     <Stack.Navigator
-    screenOptions={{
+      screenOptions={{
       headerShown: false
     }}>
       <Stack.Screen name='Login' component={Login} />
