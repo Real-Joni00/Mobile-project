@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
@@ -71,6 +71,7 @@ const Helsinki = () => {
           <>
               <Header/>
                   <Text>Helsinki</Text>
+                  <Image source={require('../Finland/images/helsinginkoulutusvuodet.jpg')} />
                   <Text>{vaestotiheys}</Text>
             </>
         </LinearGradient>
