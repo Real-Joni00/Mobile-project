@@ -16,7 +16,7 @@ const questions = [
         answers: ["Answer 1", "Answer 2", "Answer 3"],
         correctAnswerIndex: 0
     },
-    
+
     {
         questionText: 'Question 3',
         answers: ["Answer 1", "Answer 2", "Answer 3"],
@@ -60,10 +60,10 @@ export default Quiz = () => {
 
     const results = () => {
         return (
-            <View>
-                <Text>Quiz completed!</Text>
-                <Text>You got {correctAnswers} out of {questions.length} questions right!</Text>
-                <Text onPress={() => [setQuestionIndex(0), setCorrectAnswers(0), setQuizCompleted(false), setIsStart(false)]}>Restart</Text>
+            <View style={styles.quizContainer}>
+                <Text style={styles.header}>Quiz completed!</Text>
+                <Text style={styles.quizResults}>You got {correctAnswers} out of {questions.length} questions right!</Text>
+                <Text style={styles.quizStart} onPress={() => [setQuestionIndex(0), setCorrectAnswers(0), setQuizCompleted(false), setIsStart(false)]}>Restart</Text>
             </View>
         )
     }
@@ -78,26 +78,28 @@ export default Quiz = () => {
         >
             <>
                 <Header />
-                {!isStart ? 
-                <View style={styles.container}>
-                    <Text style={styles.header}>QUIZ</Text>
+                {!isStart ?
+                    <View style={styles.container}>
+                        <Text style={styles.header}>QUIZ</Text>
 
-                    <Pressable onPress={() => setIsStart(true)}>
-                        <Text style={styles.quizStart}>START HERE</Text>
-                    </Pressable>
-                </View>
-                :
-                quizCompleted ? results() :
-                <View>
-                        <Text>{questions[questionIndex].questionText}</Text>
-                        {questions[questionIndex].answers.map((answer, index) => (
-                            <Text key={index} onPress={() => handleAnswerSelection(index)}>
-                                {answer}
-                            </Text>
-                        ))}
+                        <Pressable onPress={() => setIsStart(true)}>
+                            <Text style={styles.quizStart}>START HERE</Text>
+                        </Pressable>
                     </View>
+                    :
+                    quizCompleted ? results() :
+                        <View>
+                            <Text style={styles.header}>{questions[questionIndex].questionText}</Text>
+                            <View style={styles.quizContainer}>
+                                {questions[questionIndex].answers.map((answer, index) => (
+                                    <Text key={index} style={styles.quizOptions} onPress={() => handleAnswerSelection(index)}>
+                                        {answer}
+                                    </Text>
+                                ))}
+                            </View>
+                        </View>
                 }
-                
+
             </>
         </LinearGradient>
     )
