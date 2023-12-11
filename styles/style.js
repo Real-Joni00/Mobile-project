@@ -232,5 +232,14 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 60,
     marginBottom: 40
+  },
+
+  loggedHeader: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
   }
 })
