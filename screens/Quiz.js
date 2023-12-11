@@ -45,17 +45,21 @@ export default Quiz = () => {
 
     const handleAnswerSelection = (selectedAnswerIndex) => {
         const currentQuestion = questions[questionIndex];
-
+    
         if (selectedAnswerIndex === currentQuestion.correctAnswerIndex) {
             setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
         }
+        
         // Move to the next question
-        setQuestionIndex((prevQuestionIndex) => prevQuestionIndex + 1);
-
-        if (questionIndex === questions.length - 1) {
-            // End the quiz
-            setQuizCompleted(true);
-        }
+        setQuestionIndex((prevQuestionIndex) => {
+            if (prevQuestionIndex === questions.length - 1) {
+                // End the quiz
+                setQuizCompleted(true);
+                return prevQuestionIndex; // Do not increment further
+            } else {
+                return prevQuestionIndex + 1;
+            }
+        });
     }
 
     const results = () => {
@@ -63,7 +67,11 @@ export default Quiz = () => {
             <View style={styles.quizContainer}>
                 <Text style={styles.header}>Quiz completed!</Text>
                 <Text style={styles.quizResults}>You got {correctAnswers} out of {questions.length} questions right!</Text>
-                <Text style={styles.quizStart} onPress={() => [setQuestionIndex(0), setCorrectAnswers(0), setQuizCompleted(false), setIsStart(false)]}>Restart</Text>
+                <Pressable onPress={() => [setQuestionIndex(0), setCorrectAnswers(0), setQuizCompleted(false), setIsStart(false)]}>
+                {({ pressed }) => (
+                    <Text style={[styles.quizStart, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]}>Restart</Text>
+                )}
+                </Pressable>
             </View>
         )
     }
@@ -83,7 +91,9 @@ export default Quiz = () => {
                         <Text style={styles.header}>QUIZ</Text>
 
                         <Pressable onPress={() => setIsStart(true)}>
-                            <Text style={styles.quizStart}>START HERE</Text>
+                            {({ pressed }) => (
+                                <Text style={[styles.quizStart, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]}>START HERE</Text>
+                            )}
                         </Pressable>
                     </View>
                     :
@@ -92,9 +102,13 @@ export default Quiz = () => {
                             <Text style={styles.header}>{questions[questionIndex].questionText}</Text>
                             <View style={styles.quizContainer}>
                                 {questions[questionIndex].answers.map((answer, index) => (
-                                    <Text key={index} style={styles.quizOptions} onPress={() => handleAnswerSelection(index)}>
-                                        {answer}
-                                    </Text>
+                                    <Pressable key={index}>
+                                        {({ pressed }) => (
+                                            <Text style={[styles.quizOptions, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]} onPress={() => handleAnswerSelection(index)}>
+                                                {answer}
+                                            </Text>
+                                        )}
+                                    </Pressable>
                                 ))}
                             </View>
                         </View>
