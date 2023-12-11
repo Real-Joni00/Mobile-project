@@ -1,8 +1,9 @@
-import { Text } from "react-native"
+import { Pressable, Text } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from "../../components/Header.js";
 import styles from '../../styles/style.js'
 import { ScrollView } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 
 export default LoggedUser = ({ navigation }) => {
     return (
@@ -17,11 +18,21 @@ export default LoggedUser = ({ navigation }) => {
 
         <ScrollView>
             <Text style={styles.header}>Hello User!</Text>
-            <Text style={styles.loggedText}>Manage my profile</Text>
-            <Text style={styles.loggedText}>Saved searches</Text>
-            <Text style={styles.loggedText}>My top quiz results</Text>
-            <Text style={styles.loggedText}>About us</Text>
-            <Text style={styles.logout}>Log out</Text>
+            <Pressable>
+              <Text style={styles.loggedText}><Ionicons name='settings' size={25} />Manage my profile</Text>
+            </Pressable>
+            <Pressable>
+              <Text style={styles.loggedText}><Ionicons name='save' size={25} />Saved searches</Text>
+            </Pressable>
+            <Pressable>
+              <Text style={styles.loggedText}><Ionicons name='trophy' size={25} />My top quiz results</Text>
+            </Pressable>
+            <Pressable>
+              <Text style={styles.loggedText}><Ionicons name='ios-information-circle-sharp' size={25} />About us</Text>
+            </Pressable>
+            <Pressable>
+              <Text style={styles.logout}>Log out<Ionicons name='log-out' size={30} /></Text>
+            </Pressable>
         </ScrollView>
 
       </LinearGradient>

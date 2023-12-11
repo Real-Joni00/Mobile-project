@@ -197,6 +197,9 @@ export default StyleSheet.create({
     paddingTop: 60,
     marginLeft: 10,
     paddingLeft: 10,
-    fontSize: 20
-  }
+    fontSize: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
 })
