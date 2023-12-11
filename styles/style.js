@@ -225,4 +225,40 @@ export default StyleSheet.create({
    marginTop: 40
   },
 
+  createPassword: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  },
+
+  loggedHeader: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  },
+
+  loggedMediumHeader: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    marginLeft: 15
+  },
+
+  about: {
+    color: 'white',
+    marginHorizontal: 15,
+    fontSize: 16
+  },
+
+  profile: {
+    fontSize: 18,
+    color: 'white',
+  }
 })

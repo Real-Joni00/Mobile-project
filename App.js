@@ -6,6 +6,7 @@ import Login from './screens/Login.js';
 import Header from './components/Header.js';
 import Register from './screens/ProfileNavigation/Register.js';
 import Forgot from './screens/ProfileNavigation/Forgot.js';
+import Change from './screens/ProfileNavigation/Change.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,6 +17,10 @@ import styles from './styles/style.js';
 import 'react-native-gesture-handler';
 import Confirm from './screens/ProfileNavigation/Confirm.js';
 import LoggedUser from './screens/ProfileNavigation/LoggedUser.js';
+import Manage from './screens/ProfileNavigation/Manage.js';
+import Results from './screens/ProfileNavigation/Results.js';
+import Searches from './screens/ProfileNavigation/Searches.js';
+import About from './screens/ProfileNavigation/About.js';
 
 // Importing cities files for stack navigator
 
@@ -139,6 +144,11 @@ function StackNavigatorProfile() {
       <Stack.Screen name='Forgot' component={Forgot} />
       <Stack.Screen name='Confirm' component={Confirm} />
       <Stack.Screen name='LoggedUser' component={LoggedUser} />
+      <Stack.Screen name='Change' component={Change} />
+      <Stack.Screen name='Manage' component={Manage} />
+      <Stack.Screen name='Searches' component={Searches} />
+      <Stack.Screen name='Results' component={Results} />
+      <Stack.Screen name='About' component={About} />
     </Stack.Navigator>
   )
 }
