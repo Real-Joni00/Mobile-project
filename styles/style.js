@@ -183,5 +183,20 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     margin: 15,
+  },
+
+  loggedText: {
+    color: 'white',
+    padding: 10,
+    marginLeft: 10,
+    fontSize: 20
+  },
+
+  logout: {
+    color: 'white',
+    paddingTop: 60,
+    marginLeft: 10,
+    paddingLeft: 10,
+    fontSize: 20
   }
 })

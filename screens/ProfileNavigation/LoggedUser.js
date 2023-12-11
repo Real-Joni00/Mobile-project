@@ -1,10 +1,8 @@
-import { View, Text, TextInput, Pressable, KeyboardAvoidingView } from "react-native"
+import { Text } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from "../../components/Header.js";
 import styles from '../../styles/style.js'
 import { ScrollView } from "react-native";
-import { useEffect, useState } from "react";
-
 
 export default LoggedUser = ({ navigation }) => {
     return (
@@ -17,16 +15,15 @@ export default LoggedUser = ({ navigation }) => {
       >
       <Header />
 
-      <KeyboardAvoidingView
-        behavior="height"
-        style={{ flex: 1 }}
-      >
-        
         <ScrollView>
             <Text style={styles.header}>Hello User!</Text>
+            <Text style={styles.loggedText}>Manage my profile</Text>
+            <Text style={styles.loggedText}>Saved searches</Text>
+            <Text style={styles.loggedText}>My top quiz results</Text>
+            <Text style={styles.loggedText}>About us</Text>
+            <Text style={styles.logout}>Log out</Text>
         </ScrollView>
 
-      </KeyboardAvoidingView>
       </LinearGradient>
     )
 }
