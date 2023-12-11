@@ -7,7 +7,7 @@ import { BlurView } from 'expo-blur';
 import styles from '../styles/style.js'
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
-import Helsinki from './StackNavigationCities/Helsinki.js';
+import Helsinki from './StackNavigationCities/Finland/Helsinki.js';
 
 export default Cities = () => {
 
@@ -46,7 +46,7 @@ export default Cities = () => {
         setIsPressed(false);
     };
 
-    // Navigation between city screens
+    // Navigation between Finland's city screens
 
     useEffect(() => {
         if (selectedCity === 'Helsinki') {
@@ -54,6 +54,72 @@ export default Cities = () => {
             setSelectedCity('')
         } else if (selectedCity === 'Tampere') {
             navigation.navigate('Tampere')
+            setSelectedCity('')
+        } else if (selectedCity === 'Turku') {
+            navigation.navigate('Turku')
+            setSelectedCity('')
+        } else if (selectedCity === 'Oulu') {
+            navigation.navigate('Oulu')
+            setSelectedCity('')
+        }
+    })
+
+    // Navigation between Sweden's city screens
+
+    useEffect(() => {
+        if (selectedCity === 'Stockholm') {
+            navigation.navigate('Stockholm')
+            setSelectedCity('')
+        } else if (selectedCity === 'Gothenburg') {
+            navigation.navigate('Gothenburg')
+            setSelectedCity('')
+        } else if (selectedCity === 'Malmö') {
+            navigation.navigate('Malmö')
+            setSelectedCity('')
+        }
+    })
+
+    // Navigation between Norway's city screens
+
+    useEffect(() => {
+        if (selectedCity === 'Oslo') {
+            navigation.navigate('Oslo')
+            setSelectedCity('')
+        } else if (selectedCity === 'Bergen') {
+            navigation.navigate('Bergen')
+            setSelectedCity('')
+        } else if (selectedCity === 'Trondheim') {
+            navigation.navigate('Trondheim')
+            setSelectedCity('')
+        } else if (selectedCity === 'Stavanger') {
+            navigation.navigate('Stavanger')
+            setSelectedCity('')
+        }
+    })
+
+    // Navigation between Denmark's city screens
+
+    useEffect(() => {
+        if (selectedCity === 'Copenhagen') {
+            navigation.navigate('Copenhagen')
+            setSelectedCity('')
+        } else if (selectedCity === 'Aarhus') {
+            navigation.navigate('Aarhus')
+            setSelectedCity('')
+        } else if (selectedCity === 'Odense') {
+            navigation.navigate('Odense')
+            setSelectedCity('')
+        } else if (selectedCity === 'Aalborg') {
+            navigation.navigate('Aalborg')
+            setSelectedCity('')
+        }
+    })
+
+    // Navigation between Iceland's city screens
+
+    useEffect(() => {
+        if (selectedCity === 'Reykjavik') {
+            navigation.navigate('Reykjavik')
             setSelectedCity('')
         }
     })
