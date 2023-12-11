@@ -19,22 +19,22 @@ export default LoggedUser = ({ navigation }) => {
         <ScrollView>
             <Text style={styles.header}>Hello User!</Text>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Manage')}>
-              <Ionicons color='white' name='settings' size={22}> Manage my profile</Ionicons>
+            <Ionicons color='white' name='settings' size={24}><Text style={styles.profile}> Manage my profile</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Searches')}> 
-              <Ionicons color='white' name='save' size={22}> Saved searches</Ionicons>
+            <Ionicons color='white' name='save' size={24}><Text style={styles.profile}> Saved searches</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Results')}>
-              <Ionicons color='white' name='trophy' size={22}> My top quiz results</Ionicons>
+            <Ionicons color='white' name='trophy' size={24}><Text style={styles.profile}> My top quiz results</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.iconLine} onPress={() => navigation.navigate('About')}>
-              <Ionicons color='white' name='information' size={22}> About us</Ionicons>
+            <Ionicons color='white' name='information' size={24}><Text style={styles.profile}> About us</Text></Ionicons>
             </Pressable>
             <Pressable style={styles.logout} onPress={() => navigation.navigate('Login')}>
-              <Ionicons color='white' name='log-out' size={22}> Log out</Ionicons>
+            <Ionicons color='white' name='log-out' size={24}><Text style={styles.profile}> Log out</Text></Ionicons>
             </Pressable>
         </ScrollView>
 
       </LinearGradient>
     )
-}
+} 
