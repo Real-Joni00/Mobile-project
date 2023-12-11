@@ -12,7 +12,6 @@ export default Confirm = ({ navigation }) => {
     const [isPressed, setIsPressed] = useState(false);
     const [selectedScreen, setSelectedScreen] = useState('');
 
-
     const handlePressIn = () => {
         setIsPressed(true);
     };
@@ -27,10 +26,6 @@ export default Confirm = ({ navigation }) => {
         }
     })
 
-    function allOnPressed() {
-        navigation.goBack();
-
-    }
     return (
         <LinearGradient
             colors={['#77a8d6', '#083455', '#7c056e']}
@@ -68,7 +63,7 @@ export default Confirm = ({ navigation }) => {
                         keyboardType="number-pad"
                         autoCapitalize="none"
                     />
-                    <Pressable style={styles.button} onPress={() => navigation.navigate('Confirm')}>
+                    <Pressable style={styles.button} onPress={() => navigation.navigate('Change')}>
                         <Text style={styles.buttonText}>NEXT</Text>
                     </Pressable>
                     <Pressable>

@@ -225,4 +225,12 @@ export default StyleSheet.create({
    marginTop: 40
   },
 
+  createPassword: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  }
 })

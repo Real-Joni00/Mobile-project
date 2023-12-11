@@ -6,6 +6,7 @@ import Login from './screens/Login.js';
 import Header from './components/Header.js';
 import Register from './screens/ProfileNavigation/Register.js';
 import Forgot from './screens/ProfileNavigation/Forgot.js';
+import Change from './screens/ProfileNavigation/Change.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -139,6 +140,7 @@ function StackNavigatorProfile() {
       <Stack.Screen name='Forgot' component={Forgot} />
       <Stack.Screen name='Confirm' component={Confirm} />
       <Stack.Screen name='LoggedUser' component={LoggedUser} />
+      <Stack.Screen name='Change' component={Change} />
     </Stack.Navigator>
   )
 }
