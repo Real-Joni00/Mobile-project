@@ -1,10 +1,9 @@
-import { View, Text, TextInput, Pressable, KeyboardAvoidingView } from "react-native"
+import { Pressable, Text } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from "../../components/Header.js";
 import styles from '../../styles/style.js'
 import { ScrollView } from "react-native";
-import { useEffect, useState } from "react";
-
+import { Ionicons } from '@expo/vector-icons';
 
 export default LoggedUser = ({ navigation }) => {
     return (
@@ -17,16 +16,25 @@ export default LoggedUser = ({ navigation }) => {
       >
       <Header />
 
-      <KeyboardAvoidingView
-        behavior="height"
-        style={{ flex: 1 }}
-      >
-        
         <ScrollView>
             <Text style={styles.header}>Hello User!</Text>
+            <Pressable style={styles.iconLine}>
+              <Ionicons color='white' name='settings' size={22}> Manage my profile</Ionicons>
+            </Pressable>
+            <Pressable style={styles.iconLine}> 
+              <Ionicons color='white' name='save' size={22}> Saved searches</Ionicons>
+            </Pressable>
+            <Pressable style={styles.iconLine}>
+              <Ionicons color='white' name='trophy' size={22}> My top quiz results</Ionicons>
+            </Pressable>
+            <Pressable style={styles.iconLine}>
+              <Ionicons color='white' name='information' size={22}> About us</Ionicons>
+            </Pressable>
+            <Pressable style={styles.logout}>
+              <Ionicons color='white' name='log-out' size={22}> Log out</Ionicons>
+            </Pressable>
         </ScrollView>
 
-      </KeyboardAvoidingView>
       </LinearGradient>
     )
 }

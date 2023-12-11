@@ -131,7 +131,8 @@ function StackNavigatorProfile() {
   return(
     <Stack.Navigator
       screenOptions={{
-      headerShown: false
+      headerShown: false,
+      presentation: "modal"
     }}>
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Register' component={Register} />
