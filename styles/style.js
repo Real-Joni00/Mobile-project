@@ -214,21 +214,14 @@ export default StyleSheet.create({
     margin: 15,
   },
 
-  loggedText: {
-    color: 'white',
-    padding: 10,
+  iconLine: {
+    marginBottom: 30,
     marginLeft: 10,
-    fontSize: 20
   },
 
   logout: {
-    color: 'white',
-    paddingTop: 60,
-    marginLeft: 10,
-    paddingLeft: 10,
-    fontSize: 20,
-    justifyContent: 'center',
-    alignItems: 'center'
+   marginLeft: 13,
+   marginTop: 40
   },
 
 })

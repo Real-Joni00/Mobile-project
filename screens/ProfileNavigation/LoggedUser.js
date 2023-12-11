@@ -18,20 +18,20 @@ export default LoggedUser = ({ navigation }) => {
 
         <ScrollView>
             <Text style={styles.header}>Hello User!</Text>
-            <Pressable>
-              <Text style={styles.loggedText}><Ionicons name='settings' size={25} />Manage my profile</Text>
+            <Pressable style={styles.iconLine}>
+              <Ionicons color='white' name='settings' size={22}> Manage my profile</Ionicons>
             </Pressable>
-            <Pressable>
-              <Text style={styles.loggedText}><Ionicons name='save' size={25} />Saved searches</Text>
+            <Pressable style={styles.iconLine}> 
+              <Ionicons color='white' name='save' size={22}> Saved searches</Ionicons>
             </Pressable>
-            <Pressable>
-              <Text style={styles.loggedText}><Ionicons name='trophy' size={25} />My top quiz results</Text>
+            <Pressable style={styles.iconLine}>
+              <Ionicons color='white' name='trophy' size={22}> My top quiz results</Ionicons>
             </Pressable>
-            <Pressable>
-              <Text style={styles.loggedText}><Ionicons name='ios-information-circle-sharp' size={25} />About us</Text>
+            <Pressable style={styles.iconLine}>
+              <Ionicons color='white' name='information' size={22}> About us</Ionicons>
             </Pressable>
-            <Pressable>
-              <Text style={styles.logout}>Log out<Ionicons name='log-out' size={30} /></Text>
+            <Pressable style={styles.logout}>
+              <Ionicons color='white' name='log-out' size={22}> Log out</Ionicons>
             </Pressable>
         </ScrollView>
 
