@@ -181,7 +181,8 @@ export default StyleSheet.create({
 
   user: {
     color: 'white',
-    marginTop: 40,
+    marginTop: 30,
+    marginBottom: 30,
     fontSize: 16,
     marginLeft: 30,
     textDecorationLine: 'underline',
