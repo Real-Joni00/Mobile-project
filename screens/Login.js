@@ -4,6 +4,9 @@ import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 import { ScrollView } from "react-native";
 import { useEffect, useState } from "react";
+import { signIn } from '../components/Auth.js';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/Config.js';
 
 
 export default Login = ({ navigation }) => {
@@ -23,7 +26,7 @@ export default Login = ({ navigation }) => {
       signIn(email, password);
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          navigation.navigate('Profile', { userUid: user.uid });
+          navigation.navigate('LoggedUser', { userUid: user.uid });
         }
       });
     }
@@ -78,7 +81,7 @@ export default Login = ({ navigation }) => {
                 onChangeText={(password) => setPassword(password)}
               />
 
-              <Pressable style={styles.button} onPress={() => navigation.navigate('LoggedUser')}>
+              <Pressable style={styles.button} onPress={handlePress}>
                <Text style={styles.buttonText}>LOGIN</Text>
               </Pressable>
 

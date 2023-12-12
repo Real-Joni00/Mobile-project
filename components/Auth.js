@@ -6,11 +6,12 @@ import {
     signOut } from 'firebase/auth';
 import { auth, db, USERS_REF } from '../firebase/Config';
 
-export const signUp = async (email, password) => {
+export const signUp = async (name, email, password) => {
     try {
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             set(ref(db, USERS_REF + userCredential.user.uid), {
+                name: name,
                 email: userCredential.user.email
             });
         })
