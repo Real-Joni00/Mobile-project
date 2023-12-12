@@ -87,6 +87,18 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
 
+  cityImages: {
+    resizeMode: 'cover',
+    width: "100%",
+    height: "100%",
+  },
+
+  cityImageView: {
+    width: 180,
+    height: 200,
+    aspectRatio: 1 * 1.4
+  },
+
   back: {
     marginTop: 10,
     marginLeft: 10,

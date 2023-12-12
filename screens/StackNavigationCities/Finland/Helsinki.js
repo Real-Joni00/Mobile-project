@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import style from '../../../styles/style';
+import styles from '../../../styles/style';
 
 const Helsinki = () => {
 
@@ -71,7 +71,11 @@ const Helsinki = () => {
           <>
               <Header/>
                   <Text>Helsinki</Text>
-                  <Image source={require('../Finland/images/helsinginkoulutusvuodet.jpg')} />
+                  <View style={styles.cityImageView}>
+                    <Image source={require('../Finland/images/helsinginkoulutusvuodet.jpg')} 
+                      style={styles.cityImages}
+                    />
+                  </View>
                   <Text>{vaestotiheys}</Text>
             </>
         </LinearGradient>

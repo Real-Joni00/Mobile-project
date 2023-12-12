@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { BlurView } from 'expo-blur';
-import style from '../../../styles/style';
+import styles from '../../../styles/style';
 
 const Turku = () => {
     return (
@@ -20,6 +20,11 @@ const Turku = () => {
                 <>
                     <Header/>
                         <Text>Turku</Text>
+                        <View style={styles.cityImageView}>
+                            <Image source={require('../Finland/images/turkukoulutusvuodet.jpg')} 
+                                style={styles.cityImages}
+                            />
+                        </View>
                 </>
             </LinearGradient>
         </>
