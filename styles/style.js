@@ -87,6 +87,18 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
 
+  cityImages: {
+    resizeMode: 'cover',
+    width: "100%",
+    height: "100%",
+  },
+
+  cityImageView: {
+    width: 180,
+    height: 200,
+    aspectRatio: 1 * 1.4
+  },
+
   back: {
     marginTop: 10,
     marginLeft: 10,
@@ -225,4 +237,40 @@ export default StyleSheet.create({
    marginTop: 40
   },
 
+  createPassword: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  },
+
+  loggedHeader: {
+    color: 'white',
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 60,
+    marginBottom: 40
+  },
+
+  loggedMediumHeader: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    marginLeft: 15
+  },
+
+  about: {
+    color: 'white',
+    marginHorizontal: 15,
+    fontSize: 16
+  },
+
+  profile: {
+    fontSize: 18,
+    color: 'white',
+  }
 })

@@ -46,83 +46,17 @@ export default Cities = () => {
         setIsPressed(false);
     };
 
-    // Navigation between Finland's city screens
-
+    // Navigation for all countries using a single useEffect
     useEffect(() => {
-        if (selectedCity === 'Helsinki') {
-            navigation.navigate('Helsinki')
-            setSelectedCity('')
-        } else if (selectedCity === 'Tampere') {
-            navigation.navigate('Tampere')
-            setSelectedCity('')
-        } else if (selectedCity === 'Turku') {
-            navigation.navigate('Turku')
-            setSelectedCity('')
-        } else if (selectedCity === 'Oulu') {
-            navigation.navigate('Oulu')
-            setSelectedCity('')
+        if (selectedCity) {
+            const countryCities = citiesByCountry[selectedCountry];
+
+            if (countryCities && countryCities.includes(selectedCity)) {
+                navigation.navigate(selectedCity);
+                setSelectedCity('');
+            }
         }
-    })
-
-    // Navigation between Sweden's city screens
-
-    useEffect(() => {
-        if (selectedCity === 'Stockholm') {
-            navigation.navigate('Stockholm')
-            setSelectedCity('')
-        } else if (selectedCity === 'Gothenburg') {
-            navigation.navigate('Gothenburg')
-            setSelectedCity('')
-        } else if (selectedCity === 'Malmö') {
-            navigation.navigate('Malmö')
-            setSelectedCity('')
-        }
-    })
-
-    // Navigation between Norway's city screens
-
-    useEffect(() => {
-        if (selectedCity === 'Oslo') {
-            navigation.navigate('Oslo')
-            setSelectedCity('')
-        } else if (selectedCity === 'Bergen') {
-            navigation.navigate('Bergen')
-            setSelectedCity('')
-        } else if (selectedCity === 'Trondheim') {
-            navigation.navigate('Trondheim')
-            setSelectedCity('')
-        } else if (selectedCity === 'Stavanger') {
-            navigation.navigate('Stavanger')
-            setSelectedCity('')
-        }
-    })
-
-    // Navigation between Denmark's city screens
-
-    useEffect(() => {
-        if (selectedCity === 'Copenhagen') {
-            navigation.navigate('Copenhagen')
-            setSelectedCity('')
-        } else if (selectedCity === 'Aarhus') {
-            navigation.navigate('Aarhus')
-            setSelectedCity('')
-        } else if (selectedCity === 'Odense') {
-            navigation.navigate('Odense')
-            setSelectedCity('')
-        } else if (selectedCity === 'Aalborg') {
-            navigation.navigate('Aalborg')
-            setSelectedCity('')
-        }
-    })
-
-    // Navigation between Iceland's city screens
-
-    useEffect(() => {
-        if (selectedCity === 'Reykjavik') {
-            navigation.navigate('Reykjavik')
-            setSelectedCity('')
-        }
-    })
+    }, [selectedCity, selectedCountry, citiesByCountry, navigation]);
 
     return (
         <>
@@ -228,17 +162,17 @@ export default Cities = () => {
                                     {citiesByCountry[selectedCountry].map((city, index) => (
                                         <Pressable key={index} onPress={() => setSelectedCity(city)}>
                                             {({ pressed }) => (
-                                        <LinearGradient
-                                            key={index}
-                                            colors={getCityBackgroundColors(selectedCountry)}
-                                            start={{ x: 0.5, y: 0 }}
-                                            end={{ x: 0.5, y: 1 }}
-                                            locations={[0.7, 1]}
-                                            style={[styles.cityBg, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
-                                        >
-                                            <Text key={index} style={[styles.cityText, {color: pressed ? '#000000' : '#FFFFFF'}]}>{city}</Text>
-                                        </LinearGradient>
-                                        )}
+                                                <LinearGradient
+                                                    key={index}
+                                                    colors={getCityBackgroundColors(selectedCountry)}
+                                                    start={{ x: 0.5, y: 0 }}
+                                                    end={{ x: 0.5, y: 1 }}
+                                                    locations={[0.7, 1]}
+                                                    style={[styles.cityBg, { borderColor: pressed ? '#000000' : '#FFFFFF' }]}
+                                                >
+                                                    <Text key={index} style={[styles.cityText, { color: pressed ? '#000000' : '#FFFFFF' }]}>{city}</Text>
+                                                </LinearGradient>
+                                            )}
                                         </Pressable>
                                     ))}
                                 </View>
