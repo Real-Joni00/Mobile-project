@@ -1,12 +1,44 @@
-import { View, Text, TextInput, ScrollView, Pressable, KeyboardAvoidingView } from "react-native"
+import { View, Text, TextInput, ScrollView, Pressable, KeyboardAvoidingView, Alert } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../components/Header.js'
 import styles from '../../styles/style.js'
 import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useState } from "react";
+import { signUp } from '../../components/Auth.js';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase/Config.js';
+
 
 
 export default Register = ({ navigation }) => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handlePress = () => {
+    if (!email) {
+      Alert.alert('Email is required');
+    }
+    else if (!password) {
+      Alert.alert('Password is required');
+    }
+    else if (!confirmPassword) {
+      setPassword('');
+      Alert.alert('Confirming password is required');
+    }
+    else if (password !== confirmPassword) {
+      Alert.alert('Passwords do not match');
+    }
+    else {
+      signUp(email, password);
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          navigation.navigate('LoggedUser');
+        }
+      });
+    }
+  };
 
     return (
         <LinearGradient
@@ -41,12 +73,17 @@ export default Register = ({ navigation }) => {
                 placeholder="Enter your email"
                 maxLength={100}
                 placeholderTextColor={'white'}
+                value={email}
+                onChangeText={(email) => setEmail(email.trim())}
+                autoCapitalize='none'
               />
               <Text style={styles.label}>Password</Text>
               <TextInput
                 style={styles.textInput}
                 secureTextEntry={true}
                 placeholder="Enter your password"
+                value={password}
+                onChangeText={(password) => setPassword(password)}
                 maxLength={40}
                 placeholderTextColor={'white'}
               />
@@ -54,11 +91,13 @@ export default Register = ({ navigation }) => {
               <TextInput
                 style={styles.textInput}
                 secureTextEntry={true}
-                placeholder="Confrim your password"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChangeText={(confirmPassword) => setConfirmPassword(confirmPassword)}
                 maxLength={40}
                 placeholderTextColor={'white'}
               />
-              <Pressable style={styles.button} onPress={() => navigation.navigate('Login')}>
+              <Pressable style={styles.button} onPress={handlePress}>
                 <Text style={styles.buttonText}>CREATE USER</Text>
               </Pressable>
               <Pressable onPress={() => navigation.goBack()}>
