@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import { Ionicons } from '@expo/vector-icons';
@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 import { BlurView } from 'expo-blur';
 import styles from '../styles/style.js'
 import { useNavigation } from '@react-navigation/native';
+import { BackHandler } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Helsinki from './StackNavigationCities/Finland/Helsinki.js';
+import { set } from '@firebase/database';
 
 export default Cities = () => {
 
@@ -46,17 +48,36 @@ export default Cities = () => {
         setIsPressed(false);
     };
 
-    // Navigation for all countries using a single useEffect
+    // Navigation for all countries 
     useEffect(() => {
         if (selectedCity) {
             const countryCities = citiesByCountry[selectedCountry];
 
             if (countryCities && countryCities.includes(selectedCity)) {
                 navigation.navigate(selectedCity);
-                setSelectedCity('');
+                setSelectedCity(selectedCity);
             }
         }
     }, [selectedCity, selectedCountry, citiesByCountry, navigation]);
+
+    useEffect(() => {
+        const handleBackPress = () => {
+            if (selectedCountry) {
+                // If a country is selected, go back to the city selection screen
+                setSelectedCountry('');
+                setSelectedCity('');
+                return true;
+            } else {
+                // If no country or city is selected, allow default back behavior
+                return false;
+            }
+        };
+    
+        const backHandler = BackHandler.addEventListener('hardwareBackPress', handleBackPress);
+    
+        // Cleanup the event listener when the component is unmounted
+        return () => backHandler.remove();
+    }, [selectedCountry]);
 
     return (
         <>
