@@ -10,6 +10,7 @@ import styles from '../../../styles/style';
 const Stockholm = () => {
 
     const [stockholmyearsstudied, setStockholmyearsstudied] = useState([]);
+    const [stockholmworkingage, setStockholmworkingage] = useState([]);
 
     const yearsstudiedStockholm = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -64,6 +65,68 @@ const Stockholm = () => {
         yearsstudiedStockholm()
       }, [])
 
+      const workingagepopulationStockholm = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-1NS_Tyoikainen_vaesto.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "3"
+                  ]
+                }
+              },
+              {
+                "code": "Ikä",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Sukupuoli",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2018",
+                    "2019",
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setStockholmworkingage(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        workingagepopulationStockholm()
+      }, [])
+
     return (
         <>
             <LinearGradient
@@ -84,6 +147,11 @@ const Stockholm = () => {
                         <Text>Stockholm residents who had studied more than 13 years in 2018 {stockholmyearsstudied[0]}, in 2019 {stockholmyearsstudied[1]},
                         in 2020 {stockholmyearsstudied[2]}, in 2021 {stockholmyearsstudied[3]} and in 2022 {stockholmyearsstudied[4]}.
                         </Text>
+                        <View style={styles.cityImageView}>
+                            <Image source={require('../Sweden/images/stockholmworkingagepopulation.jpg')} 
+                                style={styles.cityImages}
+                            />
+                        </View>
                 </>
             </LinearGradient>
         </>

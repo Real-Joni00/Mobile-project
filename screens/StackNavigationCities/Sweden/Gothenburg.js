@@ -10,6 +10,7 @@ import styles from '../../../styles/style';
 const Gothenburg = () => {
 
     const [gothenburgyearsstudied, setGothenburgyearsstudied] = useState([]);
+    const [gothenburgworkingage, setGothenburgworkingage] = useState([]);
 
     const yearsstudiedGothenburg = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -64,6 +65,68 @@ const Gothenburg = () => {
         yearsstudiedGothenburg()
       }, [])
 
+      const workingageGothenburg = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-1NS_Tyoikainen_vaesto.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "5"
+                  ]
+                }
+              },
+              {
+                "code": "Ikä",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Sukupuoli",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2018",
+                    "2019",
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setGothenburgworkingage(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        workingageGothenburg()
+      }, [])
+
     return (
         <>
             <LinearGradient
@@ -84,6 +147,11 @@ const Gothenburg = () => {
                         <Text>Gothenburg residents who had studied more than 13 years in 2018 {gothenburgyearsstudied[0]}, in 2019 {gothenburgyearsstudied[1]},
                         in 2020 {gothenburgyearsstudied[2]}, in 2021 {gothenburgyearsstudied[3]} and in 2022 {gothenburgyearsstudied[4]}.
                         </Text>
+                        <View style={styles.cityImageView}>
+                            <Image source={require('../Sweden/images/gothenburgworkingagepopulation.jpg')} 
+                                style={styles.cityImages}
+                            />
+                        </View>
                 </>
             </LinearGradient>
         </>

@@ -84,6 +84,11 @@ const Malmö = () => {
                         <Text>Malmö residents who had studied more than 13 years in 2018 {malmöyearsstudied[0]}, in 2019 {malmöyearsstudied[1]},
                         in 2020 {malmöyearsstudied[2]}, in 2021 {malmöyearsstudied[3]} and in 2022 {malmöyearsstudied[4]}.
                         </Text>
+                        <View style={styles.cityImageView}>
+                            <Image source={require('../Sweden/images/malmöworkingagepopulation.jpg')} 
+                                style={styles.cityImages}
+                            />
+                        </View>
                 </>
             </LinearGradient>
         </>
