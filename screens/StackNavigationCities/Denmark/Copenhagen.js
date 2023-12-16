@@ -78,7 +78,7 @@ const Copenhagen = () => {
                             <Text style={styles.cityText}>Copenhagen</Text>
                                 <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>
                                 <View style={styles.cityImageView}>
-                                    <Image source={require('../Denmark/images/copenagenyearsstudied.jpg')} 
+                                    <Image source={require('../Denmark/images/copenhagenyearsstudied.jpg')} 
                                     style={styles.cityImages}
                                 />
                                 </View>
