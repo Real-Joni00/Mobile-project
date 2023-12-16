@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
@@ -136,23 +136,28 @@ const Stockholm = () => {
                 locations={[0, 0.5, 1]}
                 style={{ flex: 1 }}
             >
-                <>
-                    <Header/>
-                        <Text>Stockholm</Text>
+              <Header/>
+                <ScrollView style={styles.cityScrollview}>
+                        <Text style={styles.cityText}>Stockholm</Text>
+                        <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Sweden/images/tukholmankoulutusvuodet.jpg')} 
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text>Stockholm residents who had studied more than 13 years in 2018 {stockholmyearsstudied[0]}, in 2019 {stockholmyearsstudied[1]},
-                        in 2020 {stockholmyearsstudied[2]}, in 2021 {stockholmyearsstudied[3]} and in 2022 {stockholmyearsstudied[4]}.
+                        <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{stockholmyearsstudied[0]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{stockholmyearsstudied[1]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{stockholmyearsstudied[2]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{stockholmyearsstudied[3]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{stockholmyearsstudied[4]}</Text>
                         </Text>
+                        <Text style={styles.citypgSubheaders}>Working age population</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Sweden/images/stockholmworkingagepopulation.jpg')} 
                                 style={styles.cityImages}
                             />
                         </View>
-                </>
+                </ScrollView>
             </LinearGradient>
         </>
     )

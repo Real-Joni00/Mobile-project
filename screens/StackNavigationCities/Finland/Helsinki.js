@@ -135,24 +135,32 @@ const Helsinki = () => {
             locations={[0, 0.5, 1]}
             style={{ flex: 1 }}
         >
-          <ScrollView>
-              <Header/>
-                  <Text>Helsinki</Text>
+          <Header/>
+          <ScrollView style={styles.cityScrollview}>
+                  <Text style={styles.cityText}>Helsinki</Text>
+                  <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>
                   <View style={styles.cityImageView}>
                     <Image source={require('../Finland/images/helsinginkoulutusvuodet.jpg')} 
                       style={styles.cityImages}
                     />
                   </View>
-                  <Text>Helsingin asukkaita, joilla 13+ koulutusvuotta vuonna 2017 {helsinginkoulutusvuodet[0]}, vuonna 2018 {helsinginkoulutusvuodet[1]},
-                        vuonna 2019 {helsinginkoulutusvuodet[2]}, vuonna 2020 {helsinginkoulutusvuodet[3]} ja vuonna 2021 {helsinginkoulutusvuodet[4]}.
+                  <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{helsinginkoulutusvuodet[0]}</Text>
+                  {"\n"}2018: <Text style={styles.cityData}>{helsinginkoulutusvuodet[1]}</Text>
+                  {"\n"}2019: <Text style={styles.cityData}>{helsinginkoulutusvuodet[2]}</Text>
+                  {"\n"}2020: <Text style={styles.cityData}>{helsinginkoulutusvuodet[3]}</Text>
+                  {"\n"}2021: <Text style={styles.cityData}>{helsinginkoulutusvuodet[4]}</Text>
                   </Text>
+                  <Text style={styles.citypgSubheaders}>Working age population</Text>
                   <View style={styles.cityImageView}>
                     <Image source={require('../Finland/images/helsingintyöikäiset.jpg')} 
                       style={styles.cityImages}
                     />
                   </View>
-                  <Text>Helsingin asukkaista työikäisiä vuonna 2017 {helsingintyöikäiset[0]}, vuonna 2018 {helsingintyöikäiset[1]},
-                        vuonna 2019 {helsingintyöikäiset[2]}, vuonna 2020 {helsingintyöikäiset[3]} ja vuonna 2021 {helsingintyöikäiset[4]}.
+                  <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{helsingintyöikäiset[0]}</Text>
+                  {"\n"}2018: <Text style={styles.cityData}>{helsingintyöikäiset[1]}</Text>
+                  {"\n"}2019: <Text style={styles.cityData}>{helsingintyöikäiset[2]}</Text>
+                  {"\n"}2020: <Text style={styles.cityData}>{helsingintyöikäiset[3]}</Text>
+                  {"\n"}2021: <Text style={styles.cityData}>{helsingintyöikäiset[4]}</Text>
                   </Text>
             </ScrollView>
         </LinearGradient>

@@ -96,7 +96,31 @@ export default StyleSheet.create({
   cityImageView: {
     width: 180,
     height: 200,
-    aspectRatio: 1 * 1.4
+    aspectRatio: 1 * 1.4,
+    padding: 5,
+  },
+
+  citypgSubheaders: {
+    color: 'white',
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 10
+  },
+
+  cityScrollview: {
+    marginLeft: 7,
+    marginRight: 15
+  },
+
+  cityTexts: {
+    color: 'white',
+    fontSize: 16,
+    textAlign: 'justify'
+  },
+
+  cityData: {
+    fontWeight: 'bold'
   },
 
   back: {

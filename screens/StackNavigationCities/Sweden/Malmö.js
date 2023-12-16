@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
@@ -73,23 +73,28 @@ const Malmö = () => {
                 locations={[0, 0.5, 1]}
                 style={{ flex: 1 }}
             >
-                <>
-                    <Header/>
-                        <Text>Malmö</Text>
+              <Header/>
+                <ScrollView style={styles.cityScrollview}>
+                        <Text style={styles.cityText}>Malmö</Text>
+                        <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Sweden/images/malmöyearsstudied.jpg')} 
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text>Malmö residents who had studied more than 13 years in 2018 {malmöyearsstudied[0]}, in 2019 {malmöyearsstudied[1]},
-                        in 2020 {malmöyearsstudied[2]}, in 2021 {malmöyearsstudied[3]} and in 2022 {malmöyearsstudied[4]}.
+                        <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{malmöyearsstudied[0]}</Text>
+                        {"\n"}2019: <Text style={styles.cityData}>{malmöyearsstudied[1]}</Text>
+                        {"\n"}2020: <Text style={styles.cityData}>{malmöyearsstudied[2]}</Text>
+                        {"\n"}2021: <Text style={styles.cityData}>{malmöyearsstudied[3]}</Text>
+                        {"\n"}2022: <Text style={styles.cityData}>{malmöyearsstudied[4]}</Text>
                         </Text>
+                        <Text style={styles.citypgSubheaders}>Working age population</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Sweden/images/malmöworkingagepopulation.jpg')} 
                                 style={styles.cityImages}
                             />
                         </View>
-                </>
+                </ScrollView>
             </LinearGradient>
         </>
     )

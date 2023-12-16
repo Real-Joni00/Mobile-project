@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
@@ -136,26 +136,34 @@ const Oulu = () => {
                 locations={[0, 0.5, 1]}
                 style={{ flex: 1 }}
             >
-                <>
-                    <Header/>
-                        <Text>Oulu</Text>
+              <Header/>
+                <ScrollView style={styles.cityScrollview}>
+                        <Text style={styles.cityText}>Oulu</Text>
+                        <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Finland/images/oulukoulutusvuodet.jpg')} 
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text>Oulun asukkaita, joilla 13+ koulutusvuotta vuonna 2017 {oulunkoulutusvuodet[0]}, vuonna 2018 {oulunkoulutusvuodet[1]},
-                        vuonna 2019 {oulunkoulutusvuodet[2]}, vuonna 2020 {oulunkoulutusvuodet[3]} ja vuonna 2021 {oulunkoulutusvuodet[4]}.
+                        <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{oulunkoulutusvuodet[0]}</Text>
+                        {"\n"}2018: <Text style={styles.cityData}>{oulunkoulutusvuodet[1]}</Text>
+                        {"\n"}2019: <Text style={styles.cityData}>{oulunkoulutusvuodet[2]}</Text>
+                        {"\n"}2020: <Text style={styles.cityData}>{oulunkoulutusvuodet[3]}</Text>
+                        {"\n"}2021: <Text style={styles.cityData}>{oulunkoulutusvuodet[4]}</Text>
                         </Text>
+                        <Text style={styles.citypgSubheaders}>Working age population</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Finland/images/ouluntyöikäiset.jpg')} 
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text>Oulun asukkaat, joista työikäisiä vuonna 2017 {ouluntyöikäiset[0]}, vuonna 2018 {ouluntyöikäiset[1]},
-                        vuonna 2019 {ouluntyöikäiset[2]}, vuonna 2020 {ouluntyöikäiset[3]} ja vuonna 2021 {ouluntyöikäiset[4]}.
+                        <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{ouluntyöikäiset[0]}</Text>
+                        {"\n"}2018: <Text style={styles.cityData}>{ouluntyöikäiset[1]}</Text>
+                        {"\n"}2019: <Text style={styles.cityData}>{ouluntyöikäiset[2]}</Text>
+                        {"\n"}2020: <Text style={styles.cityData}>{ouluntyöikäiset[3]}</Text>
+                        {"\n"}2021: <Text style={styles.cityData}>{ouluntyöikäiset[4]}</Text>
                         </Text>
-                </>
+                </ScrollView>
             </LinearGradient>
         </>
     )

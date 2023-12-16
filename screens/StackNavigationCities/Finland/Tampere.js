@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../../components/Header';
@@ -136,26 +136,34 @@ const Tampere = () => {
                 locations={[0, 0.5, 1]}
                 style={{ flex: 1 }}
             >
-                <>
-                    <Header/>
-                        <Text>Tampere</Text>
+              <Header/>
+                <ScrollView style={styles.cityScrollview}>
+                        <Text style={styles.cityText}>Tampere</Text>
+                        <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Finland/images/tamperekoulutusvuodet.jpg')}
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text>Tampereen asukkaita, joilla 13+ koulutusvuotta vuonna 2017 {tampereenkoulutusvuodet[0]}, vuonna 2018 {tampereenkoulutusvuodet[1]},
-                        vuonna 2019 {tampereenkoulutusvuodet[2]}, vuonna 2020 {tampereenkoulutusvuodet[3]} ja vuonna 2021 {tampereenkoulutusvuodet[4]}.
+                        <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{tampereenkoulutusvuodet[0]}</Text>
+                        {"\n"}2018: <Text style={styles.cityData}>{tampereenkoulutusvuodet[1]}</Text>
+                        {"\n"}2019: <Text style={styles.cityData}>{tampereenkoulutusvuodet[2]}</Text>
+                        {"\n"}2020: <Text style={styles.cityData}>{tampereenkoulutusvuodet[3]}</Text>
+                        {"\n"}2021: <Text style={styles.cityData}>{tampereenkoulutusvuodet[4]}</Text>
                         </Text>
+                        <Text style={styles.citypgSubheaders}>Working age population</Text>
                         <View style={styles.cityImageView}>
                             <Image source={require('../Finland/images/tampereentyöikäiset.jpg')}
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text>Tampereen asukkaat, joista työikäisiä vuonna 2017 {tampereentyöikäiset[0]}, vuonna 2018 {tampereentyöikäiset[1]},
-                        vuonna 2019 {tampereentyöikäiset[2]}, vuonna 2020 {tampereentyöikäiset[3]} ja vuonna 2021 {tampereentyöikäiset[4]}.
+                        <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{tampereentyöikäiset[0]}</Text>
+                        {"\n"}2018: <Text style={styles.cityData}>{tampereentyöikäiset[1]}</Text>
+                        {"\n"}2019: <Text style={styles.cityData}>{tampereentyöikäiset[2]}</Text>
+                        {"\n"}2020: <Text style={styles.cityData}>{tampereentyöikäiset[3]}</Text>
+                        {"\n"}2021: <Text style={styles.cityData}>{tampereentyöikäiset[4]}</Text>
                         </Text>
-                </>
+                </ScrollView>
             </LinearGradient>
         </>
     )
