@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Pressable, KeyboardAvoidingView } from "react-native"
+import { View, Text, ScrollView, Pressable, KeyboardAvoidingView, Alert } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../components/Header.js'
 import styles from '../../styles/style.js'
@@ -9,8 +9,22 @@ import style from "../../styles/style.js";
 
 export default Marketing = ({ navigation }) => {
 
-	
+	const [checkedEmail, setCheckedEmail] = useState(false)
+	const [checkedSMS, setCheckedSMS] = useState(false)
 
+	const handlePress = () => {
+		if (checkedEmail == true) {
+			setCheckedEmail(true)
+		} 
+		else if (checkedSMS == true) {
+			setCheckedSMS(true)
+		}
+		else {
+			Alert.alert('Your marketing preferences saved successfully!')
+			navigation.navigate('LoggedUser')
+		}
+	}
+	
   return (
     <LinearGradient
       colors={['#77a8d6', '#083455', '#7c056e']}
@@ -39,11 +53,11 @@ export default Marketing = ({ navigation }) => {
         <ScrollView>
           <Text style={styles.header}>My marketing preferences</Text>
 					<Text style={styles.label}>You can contact me about Nordic Insight updates by:</Text>
-					<View style={styles.checkbox}>
-						<Checkbox.Item label='Email' status="unchecked" />
-						<Checkbox.Item label='SMS' status="unchecked" />
+					<View>
+						<Checkbox.Item label='Email' status={checkedEmail ? 'checked' : 'unchecked'} labelStyle={{color:'white', fontSize: 20}} uncheckedColor="white" onPress={() => setCheckedEmail(!checkedEmail)}/>
+						<Checkbox.Item label='SMS' status={checkedSMS ? 'checked' : 'unchecked'} labelStyle={{ color: 'white', fontSize: 20 }} uncheckedColor="white" onPress={() => setCheckedSMS(!checkedSMS)} />
 					</View>
-					<Pressable style={styles.button}>
+					<Pressable style={styles.button} onPress={handlePress}>
 						<Text style={styles.buttonText}>SAVE YOUR PREFERENCES</Text>
 					</Pressable>
         </ScrollView>
