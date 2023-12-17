@@ -3,8 +3,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../components/Header.js'
 import styles from '../../styles/style.js'
 import { Ionicons } from '@expo/vector-icons';
+import { useState } from "react";
+import { Checkbox } from "react-native-paper";
+import style from "../../styles/style.js";
 
-export default Manage = ({ navigation }) => {
+export default Marketing = ({ navigation }) => {
+
+	
 
   return (
     <LinearGradient
@@ -32,16 +37,12 @@ export default Manage = ({ navigation }) => {
           </Pressable>
         </View>
         <ScrollView>
-          <Text style={styles.header}>Manage my profile</Text>
-          <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Email')}>
-            <Ionicons color='white' name='mail' size={26}><Text style={styles.profile}> Change my email</Text></Ionicons>
-          </Pressable>
-          <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Password')}>
-            <Ionicons color='white' name='create' size={26}><Text style={styles.profile}> Change my password</Text></Ionicons>
-          </Pressable>
-          <Pressable style={styles.iconLine} onPress={() => navigation.navigate('Marketing')}>
-            <Ionicons color='white' name='newspaper' size={26}><Text style={styles.profile}> My marketing preferences</Text></Ionicons>
-          </Pressable>
+          <Text style={styles.header}>My marketing preferences</Text>
+					<Text style={styles.label}>You can contact me about Nordic Insight updates by:</Text>
+					<View style={styles.checkbox}>
+						<Checkbox.Item label='Email' status="unchecked" />
+						<Checkbox.Item label='SMS' status="unchecked" />
+					</View>
         </ScrollView>
       </KeyboardAvoidingView>
     </LinearGradient>

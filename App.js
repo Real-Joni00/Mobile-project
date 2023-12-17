@@ -21,6 +21,10 @@ import Manage from './screens/ProfileNavigation/Manage.js';
 import Results from './screens/ProfileNavigation/Results.js';
 import Searches from './screens/ProfileNavigation/Searches.js';
 import About from './screens/ProfileNavigation/About.js';
+import Email from './screens/ProfileNavigation/Email.js';
+import Password from './screens/ProfileNavigation/Password.js';
+import Marketing from './screens/ProfileNavigation/Marketing.js';
+
 
 // Importing cities files for stack navigator
 
@@ -149,6 +153,9 @@ function StackNavigatorProfile() {
       <Stack.Screen name='Searches' component={Searches} />
       <Stack.Screen name='Results' component={Results} />
       <Stack.Screen name='About' component={About} />
+      <Stack.Screen name='Email' component={Email} />
+      <Stack.Screen name='Password' component={Password} />
+      <Stack.Screen name='Marketing' component={Marketing} />
     </Stack.Navigator>
   )
 }
