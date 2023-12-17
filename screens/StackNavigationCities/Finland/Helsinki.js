@@ -13,6 +13,7 @@ const Helsinki = () => {
   const [helsingintyöpaikat, setHelsingintyöpaikat] = useState([]);
   const [helsingintulomuutto, setHelsingintulomuutto] = useState([]);
   const [helsinginlähtömuutto, setHelsinginlähtömuutto] = useState([]);
+  const [helsingintyövoima, setHelsingintyövoima] = useState([]);
 
   const koulutusvuodetHelsinki = () => {
       fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -288,6 +289,66 @@ const Helsinki = () => {
       lähtömuuttoHelsinki()
     }, [])
 
+    const työllinentyövoimaHelsinki = () => {
+      fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-3NS_Tyollinen_tyovoima.px", {
+        method: "POST",
+        body: JSON.stringify({
+          "query": [
+            {
+              "code": "Alue",
+              "selection": {
+                "filter": "agg:Suomi.agg",
+                "values": [
+                  "3"
+                ]
+              }
+            },
+            {
+              "code": "Ikä",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "00"
+                ]
+              }
+            },
+            {
+              "code": "Sukupuoli",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "00"
+                ]
+              }
+            },
+            {
+              "code": "Vuosi",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "2019",
+                  "2020",
+                  "2021"
+                ]
+              }
+            }
+          ],
+          "response": {
+            "format": "json-stat"
+          }
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => setHelsingintyövoima(json.dataset.value));
+    }
+
+    useEffect(() => {
+      työllinentyövoimaHelsinki()
+    }, [])
+
     return (
       <>
         <LinearGradient
@@ -343,6 +404,16 @@ const Helsinki = () => {
                   <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{helsinginlähtömuutto[0]}</Text>
                     {"\n"}2019: <Text style={styles.cityData}>{helsinginlähtömuutto[1]}</Text>
                     {"\n"}2020: <Text style={styles.cityData}>{helsinginlähtömuutto[2]}</Text>
+                  </Text>
+                  <Text style={styles.citypgSubheaders}>Work force</Text>
+                    <View style={styles.cityImageView}>
+                        <Image source={require('../Finland/images/helsinkiworkforce.jpg')} 
+                          style={styles.cityImages}
+                        />
+                    </View>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyövoima[0]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyövoima[1]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyövoima[2]}</Text>
                   </Text>
                   <Text style={styles.citypgSubheaders}>Jobs available based on industry</Text>
                   <View>
