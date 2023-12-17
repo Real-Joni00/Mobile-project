@@ -416,7 +416,7 @@ const Helsinki = () => {
                     {"\n"}2021: <Text style={styles.cityData}>{helsingintyövoima[2]}</Text>
                   </Text>
                   <Text style={styles.citypgSubheaders}>Jobs available based on industry</Text>
-                  <View>
+                  <View style={styles.cityImageView}>
                     <Text style={styles.citypgSubheaders}>{"\n"}Kuva tähän</Text>
                   </View>
                   <Text style={styles.cityTexts}>{"\n"}Teollisuus & rakentaminen</Text>

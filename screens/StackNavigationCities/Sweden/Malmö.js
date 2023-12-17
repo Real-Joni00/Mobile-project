@@ -10,6 +10,10 @@ import styles from '../../../styles/style';
 const Malmö = () => {
 
     const [malmöyearsstudied, setMalmöyearsstudied] = useState([]);
+    const [malmöworkingage, setMalmöworkingage] = useState([]);
+    const [malmömigration, setMalmömigration] = useState([]);
+    const [malmöemigration, setMalmöemigration] = useState([]);
+    const [malmöworkforce, setMalmöworkforce] = useState([]);
 
     const yearsstudiedMalmö = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -64,6 +68,230 @@ const Malmö = () => {
         yearsstudiedMalmö()
       }, [])
 
+      const workingageMalmö = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-1NS_Tyoikainen_vaesto.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "7"
+                  ]
+                }
+              },
+              {
+                "code": "Ikä",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Sukupuoli",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2018",
+                    "2019",
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setMalmöworkingage(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        workingageMalmö()
+      }, [])
+
+      const migrationMalmö = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "7"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "13"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setMalmömigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        migrationMalmö()
+      }, [])
+
+      const emigrationMalmö = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "7"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "17"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setMalmöemigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        emigrationMalmö()
+      }, [])
+
+      const workforceMalmö = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-3NS_Tyollinen_tyovoima.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "7"
+                  ]
+                }
+              },
+              {
+                "code": "Ikä",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Sukupuoli",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setMalmöworkforce(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        workforceMalmö()
+      }, [])
+
     return (
         <>
             <LinearGradient
@@ -94,6 +322,36 @@ const Malmö = () => {
                                 style={styles.cityImages}
                             />
                         </View>
+                        <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{malmöworkingage[0]}</Text>
+                        {"\n"}2019: <Text style={styles.cityData}>{malmöworkingage[1]}</Text>
+                        {"\n"}2020: <Text style={styles.cityData}>{malmöworkingage[2]}</Text>
+                        {"\n"}2021: <Text style={styles.cityData}>{malmöworkingage[3]}</Text>
+                        {"\n"}2022: <Text style={styles.cityData}>{malmöworkingage[4]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Migration</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{malmömigration[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{malmömigration[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{malmömigration[2]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Emigration</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{malmöemigration[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{malmöemigration[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{malmöemigration[2]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Work force</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{malmöworkforce[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{malmöworkforce[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{malmöworkforce[2]}</Text>
+                        </Text>
                 </ScrollView>
             </LinearGradient>
         </>
