@@ -32,7 +32,16 @@ export default Manage = ({ navigation }) => {
           </Pressable>
         </View>
         <ScrollView>
-          <Text style={styles.loggedHeader}>Manage my profile</Text>
+          <Text style={styles.header}>Manage my profile</Text>
+          <Pressable style={styles.iconLine} onPress={() => navigation.navigate('')}>
+            <Ionicons color='white' name='mail' size={26}><Text style={styles.profile}> Change my email</Text></Ionicons>
+          </Pressable>
+          <Pressable style={styles.iconLine} onPress={() => navigation.navigate('')}>
+            <Ionicons color='white' name='create' size={26}><Text style={styles.profile}> Change my password</Text></Ionicons>
+          </Pressable>
+          <Pressable style={styles.iconLine} onPress={() => navigation.navigate('')}>
+            <Ionicons color='white' name='newspaper' size={26}><Text style={styles.profile}> My marketing preferences</Text></Ionicons>
+          </Pressable>
         </ScrollView>
       </KeyboardAvoidingView>
     </LinearGradient>
