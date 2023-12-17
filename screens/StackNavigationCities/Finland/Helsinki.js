@@ -10,6 +10,9 @@ const Helsinki = () => {
 
   const [helsinginkoulutusvuodet, setHelsinginkoulutusvuodet] = useState([]);
   const [helsingintyöikäiset, setHelsingintyöikäiset] = useState([]);
+  const [helsingintyöpaikat, setHelsingintyöpaikat] = useState([]);
+  const [helsingintulomuutto, setHelsingintulomuutto] = useState([]);
+  const [helsinginlähtömuutto, setHelsinginlähtömuutto] = useState([]);
 
   const koulutusvuodetHelsinki = () => {
       fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -126,6 +129,165 @@ const Helsinki = () => {
       työikäisetHelsinki()
     }, [])
 
+    const työpaikatHelsinki = () => {
+      fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-2aNS_Tyopaikat_TOL2008.px", {
+        method: "POST",
+        body: JSON.stringify({
+          "query": [
+            {
+              "code": "Alue",
+              "selection": {
+                "filter": "agg:Suomi.agg",
+                "values": [
+                  "3"
+                ]
+              }
+            },
+            {
+              "code": "Toimiala",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "01",
+                  "02",
+                  "03",
+                  "04",
+                  "05",
+                  "06",
+                  "07"
+                ]
+              }
+            },
+            {
+              "code": "Vuosi",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "2019",
+                  "2020",
+                  "2021"
+                ]
+              }
+            }
+          ],
+          "response": {
+            "format": "json-stat"
+          }
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => setHelsingintyöpaikat(json.dataset.value));
+    }
+
+    useEffect(() => {
+      työpaikatHelsinki()
+    }, [])
+
+    const tulomuuttoHelsinki = () => {
+      fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+        method: "POST",
+        body: JSON.stringify({
+          "query": [
+            {
+              "code": "Alue",
+              "selection": {
+                "filter": "agg:Suomi.agg",
+                "values": [
+                  "3"
+                ]
+              }
+            },
+            {
+              "code": "Väestönmuutos",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "13"
+                ]
+              }
+            },
+            {
+              "code": "Vuosi",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "2018",
+                  "2019",
+                  "2020"
+                ]
+              }
+            }
+          ],
+          "response": {
+            "format": "json-stat"
+          }
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => setHelsingintulomuutto(json.dataset.value));
+    }
+
+    useEffect(() => {
+      tulomuuttoHelsinki()
+    }, [])
+
+    const lähtömuuttoHelsinki = () => {
+      fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+        method: "POST",
+        body: JSON.stringify({
+          "query": [
+            {
+              "code": "Alue",
+              "selection": {
+                "filter": "agg:Suomi.agg",
+                "values": [
+                  "3"
+                ]
+              }
+            },
+            {
+              "code": "Väestönmuutos",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "17"
+                ]
+              }
+            },
+            {
+              "code": "Vuosi",
+              "selection": {
+                "filter": "item",
+                "values": [
+                  "2018",
+                  "2019",
+                  "2020"
+                ]
+              }
+            }
+          ],
+          "response": {
+            "format": "json-stat"
+          }
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then((response) => response.json())
+        .then((json) => setHelsinginlähtömuutto(json.dataset.value));
+    }
+
+    useEffect(() => {
+      lähtömuuttoHelsinki()
+    }, [])
+
     return (
       <>
         <LinearGradient
@@ -145,22 +307,81 @@ const Helsinki = () => {
                     />
                   </View>
                   <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{helsinginkoulutusvuodet[0]}</Text>
-                  {"\n"}2018: <Text style={styles.cityData}>{helsinginkoulutusvuodet[1]}</Text>
-                  {"\n"}2019: <Text style={styles.cityData}>{helsinginkoulutusvuodet[2]}</Text>
-                  {"\n"}2020: <Text style={styles.cityData}>{helsinginkoulutusvuodet[3]}</Text>
-                  {"\n"}2021: <Text style={styles.cityData}>{helsinginkoulutusvuodet[4]}</Text>
+                    {"\n"}2018: <Text style={styles.cityData}>{helsinginkoulutusvuodet[1]}</Text>
+                    {"\n"}2019: <Text style={styles.cityData}>{helsinginkoulutusvuodet[2]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsinginkoulutusvuodet[3]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsinginkoulutusvuodet[4]}</Text>
                   </Text>
                   <Text style={styles.citypgSubheaders}>Working age population</Text>
-                  <View style={styles.cityImageView}>
-                    <Image source={require('../Finland/images/helsingintyöikäiset.jpg')} 
-                      style={styles.cityImages}
-                    />
-                  </View>
+                    <View style={styles.cityImageView}>
+                        <Image source={require('../Finland/images/helsingintyöikäiset.jpg')} 
+                          style={styles.cityImages}
+                        />
+                    </View>
                   <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{helsingintyöikäiset[0]}</Text>
-                  {"\n"}2018: <Text style={styles.cityData}>{helsingintyöikäiset[1]}</Text>
-                  {"\n"}2019: <Text style={styles.cityData}>{helsingintyöikäiset[2]}</Text>
-                  {"\n"}2020: <Text style={styles.cityData}>{helsingintyöikäiset[3]}</Text>
-                  {"\n"}2021: <Text style={styles.cityData}>{helsingintyöikäiset[4]}</Text>
+                    {"\n"}2018: <Text style={styles.cityData}>{helsingintyöikäiset[1]}</Text>
+                    {"\n"}2019: <Text style={styles.cityData}>{helsingintyöikäiset[2]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöikäiset[3]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöikäiset[4]}</Text>
+                  </Text>
+                  <Text style={styles.citypgSubheaders}>Migration</Text>
+                    <View style={styles.cityImageView}>
+                        <Image source={require('../Finland/images/helsinkimigration.jpg')} 
+                          style={styles.cityImages}
+                        />
+                    </View>
+                  <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{helsingintulomuutto[0]}</Text>
+                    {"\n"}2019: <Text style={styles.cityData}>{helsingintulomuutto[1]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintulomuutto[2]}</Text>
+                  </Text>
+                  <Text style={styles.citypgSubheaders}>Emigration</Text>
+                    <View style={styles.cityImageView}>
+                        <Image source={require('../Finland/images/helsinkemigration.jpg')} 
+                          style={styles.cityImages}
+                        />
+                    </View>
+                  <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{helsinginlähtömuutto[0]}</Text>
+                    {"\n"}2019: <Text style={styles.cityData}>{helsinginlähtömuutto[1]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsinginlähtömuutto[2]}</Text>
+                  </Text>
+                  <Text style={styles.citypgSubheaders}>Jobs available based on industry</Text>
+                  <View>
+                    <Text style={styles.citypgSubheaders}>{"\n"}Kuva tähän</Text>
+                  </View>
+                  <Text style={styles.cityTexts}>{"\n"}Teollisuus & rakentaminen</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[0]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[1]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[2]}</Text>
+                  </Text>
+                  <Text style={styles.cityTexts}>{"\n"}Kauppa, kuljetus ja majoitus</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[3]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[4]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[5]}</Text>
+                  </Text>
+                  <Text style={styles.cityTexts}>{"\n"}Informaatio ja viestintä</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[6]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[7]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[8]}</Text>
+                  </Text>
+                  <Text style={styles.cityTexts}>{"\n"}Rahoitus-, kiinteistö- ja ammatillinen toimijuus sekä tukipalvelut</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[9]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[10]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[11]}</Text>
+                  </Text>
+                  <Text style={styles.cityTexts}>{"\n"}Julkinen hallinto, koulutus, terveys- ja sosiaalipalvelut</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[12]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[13]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[14]}</Text>
+                  </Text>
+                  <Text style={styles.cityTexts}>{"\n"}Taiteet, virkistys ja muut palvelut</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[15]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[16]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[17]}</Text>
+                  </Text>
+                  <Text style={styles.cityTexts}>{"\n"}Muut ja tuntematon</Text>
+                  <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{helsingintyöpaikat[18]}</Text>
+                    {"\n"}2020: <Text style={styles.cityData}>{helsingintyöpaikat[19]}</Text>
+                    {"\n"}2021: <Text style={styles.cityData}>{helsingintyöpaikat[20]}</Text>
                   </Text>
             </ScrollView>
         </LinearGradient>
