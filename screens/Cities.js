@@ -91,6 +91,7 @@ export default Cities = () => {
                 <>
                     <Header />
                     {!selectedCountry ?
+                    <ScrollView>
                         <View style={styles.flagContainer}>
                             <Pressable onPress={() => setSelectedCountry('Finland')} style={styles.flags}>
                                 {({ pressed }) => (
@@ -162,6 +163,7 @@ export default Cities = () => {
                                 )}
                             </Pressable>
                         </View>
+                    </ScrollView>
                         :
                         <>
 
