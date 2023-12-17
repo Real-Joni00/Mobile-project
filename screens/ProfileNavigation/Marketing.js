@@ -19,12 +19,17 @@ export default Marketing = ({ navigation }) => {
 		else if (checkedSMS == true) {
 			setCheckedSMS(true)
 		}
+		else if (checkedEmail == false) {
+			setCheckedEmail(false)
+		}
+		else if (checkedSMS == false)
+			setCheckedSMS(false)
 		else {
 			Alert.alert('Your marketing preferences saved successfully!')
 			navigation.navigate('LoggedUser')
 		}
 	}
-	
+
   return (
     <LinearGradient
       colors={['#77a8d6', '#083455', '#7c056e']}
