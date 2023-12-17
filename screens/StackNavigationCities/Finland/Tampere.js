@@ -334,9 +334,9 @@ const Tampere = () => {
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{tampereentulomuutto[0]}</Text>
-                          {"\n"}2020: <Text style={styles.cityData}>{tampereentulomuutto[1]}</Text>
-                          {"\n"}2021: <Text style={styles.cityData}>{tampereentulomuutto[2]}</Text>
+                        <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{tampereentulomuutto[0]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{tampereentulomuutto[1]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{tampereentulomuutto[2]}</Text>
                         </Text>
                         <Text style={styles.citypgSubheaders}>Emigration</Text>
                         <View style={styles.cityImageView}>
@@ -344,9 +344,9 @@ const Tampere = () => {
                                 style={styles.cityImages}
                             />
                         </View>
-                        <Text style={styles.cityTexts}>2019: <Text style={styles.cityData}>{tampereenlähtömuutto[0]}</Text>
-                          {"\n"}2020: <Text style={styles.cityData}>{tampereenlähtömuutto[1]}</Text>
-                          {"\n"}2021: <Text style={styles.cityData}>{tampereenlähtömuutto[2]}</Text>
+                        <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{tampereenlähtömuutto[0]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{tampereenlähtömuutto[1]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{tampereenlähtömuutto[2]}</Text>
                         </Text>
                         <Text style={styles.citypgSubheaders}>Work force</Text>
                         <View style={styles.cityImageView}>
