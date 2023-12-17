@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable, KeyboardAvoidingView } from "react-native"
+import { Alert, Text, TextInput, Pressable, KeyboardAvoidingView } from "react-native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'

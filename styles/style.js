@@ -296,5 +296,10 @@ export default StyleSheet.create({
   profile: {
     fontSize: 18,
     color: 'white',
+  },
+
+  checkbox: {
+    fontSize: 20,
+    color: 'white'
   }
 })

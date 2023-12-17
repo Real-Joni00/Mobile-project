@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../components/Header.js'
 import styles from '../../styles/style.js'
 import { Ionicons } from '@expo/vector-icons';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { signUp } from '../../components/Auth.js';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase/Config.js';
