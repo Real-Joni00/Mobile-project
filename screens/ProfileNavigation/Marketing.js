@@ -43,6 +43,9 @@ export default Marketing = ({ navigation }) => {
 						<Checkbox.Item label='Email' status="unchecked" />
 						<Checkbox.Item label='SMS' status="unchecked" />
 					</View>
+					<Pressable style={styles.button}>
+						<Text style={styles.buttonText}>SAVE YOUR PREFERENCES</Text>
+					</Pressable>
         </ScrollView>
       </KeyboardAvoidingView>
     </LinearGradient>
