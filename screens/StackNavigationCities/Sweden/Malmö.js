@@ -311,10 +311,10 @@ const Malmö = () => {
                             />
                         </View>
                         <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{malmöyearsstudied[0]}</Text>
-                        {"\n"}2019: <Text style={styles.cityData}>{malmöyearsstudied[1]}</Text>
-                        {"\n"}2020: <Text style={styles.cityData}>{malmöyearsstudied[2]}</Text>
-                        {"\n"}2021: <Text style={styles.cityData}>{malmöyearsstudied[3]}</Text>
-                        {"\n"}2022: <Text style={styles.cityData}>{malmöyearsstudied[4]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{malmöyearsstudied[1]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{malmöyearsstudied[2]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{malmöyearsstudied[3]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{malmöyearsstudied[4]}</Text>
                         </Text>
                         <Text style={styles.citypgSubheaders}>Working age population</Text>
                         <View style={styles.cityImageView}>
@@ -323,10 +323,10 @@ const Malmö = () => {
                             />
                         </View>
                         <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{malmöworkingage[0]}</Text>
-                        {"\n"}2019: <Text style={styles.cityData}>{malmöworkingage[1]}</Text>
-                        {"\n"}2020: <Text style={styles.cityData}>{malmöworkingage[2]}</Text>
-                        {"\n"}2021: <Text style={styles.cityData}>{malmöworkingage[3]}</Text>
-                        {"\n"}2022: <Text style={styles.cityData}>{malmöworkingage[4]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{malmöworkingage[1]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{malmöworkingage[2]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{malmöworkingage[3]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{malmöworkingage[4]}</Text>
                         </Text>
                         <Text style={styles.citypgSubheaders}>Migration</Text>
                         <View style={styles.cityImageView}>

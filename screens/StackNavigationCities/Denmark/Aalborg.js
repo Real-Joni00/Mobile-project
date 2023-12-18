@@ -11,7 +11,7 @@ const Aalborg = () => {
 
     const [aalborgyearsstudied, setAalborgyearsstudied] = useState([]);
 
-    const yearsstudiedStockholm = () => {
+    const yearsstudiedAalborg = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
           method: "POST",
           body: JSON.stringify({
