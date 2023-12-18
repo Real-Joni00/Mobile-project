@@ -5,7 +5,6 @@ import styles from '../../styles/style.js'
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
 import { Checkbox } from "react-native-paper";
-import style from "../../styles/style.js";
 
 export default Marketing = ({ navigation }) => {
 
@@ -13,17 +12,12 @@ export default Marketing = ({ navigation }) => {
 	const [checkedSMS, setCheckedSMS] = useState(false)
 
 	const handlePress = () => {
-		if (checkedEmail == true) {
-			setCheckedEmail(true)
-		} 
-		else if (checkedSMS == true) {
-			setCheckedSMS(true)
-		}
-		else if (checkedEmail == false) {
-			setCheckedEmail(false)
-		}
-		else if (checkedSMS == false)
-			setCheckedSMS(false)
+		if ( checkedEmail == true) {
+      setCheckedEmail(true)
+    }
+    if ( checkedSMS == true) {
+      setCheckedSMS(true)
+    }
 		else {
 			Alert.alert('Your marketing preferences saved successfully!')
 			navigation.navigate('LoggedUser')
@@ -62,7 +56,7 @@ export default Marketing = ({ navigation }) => {
 						<Checkbox.Item label='Email' status={checkedEmail ? 'checked' : 'unchecked'} labelStyle={{color:'white', fontSize: 20}} uncheckedColor="white" onPress={() => setCheckedEmail(!checkedEmail)}/>
 						<Checkbox.Item label='SMS' status={checkedSMS ? 'checked' : 'unchecked'} labelStyle={{ color: 'white', fontSize: 20 }} uncheckedColor="white" onPress={() => setCheckedSMS(!checkedSMS)} />
 					</View>
-					<Pressable style={styles.button} onPress={handlePress}>
+          <Pressable style={styles.button} onPress={handlePress}>
 						<Text style={styles.buttonText}>SAVE YOUR PREFERENCES</Text>
 					</Pressable>
         </ScrollView>

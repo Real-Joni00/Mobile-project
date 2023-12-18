@@ -181,7 +181,7 @@ export default Cities = () => {
                             </View>
 
                             {selectedCountry && citiesByCountry[selectedCountry] && (
-                                <View>
+                                <ScrollView>
                                     {citiesByCountry[selectedCountry].map((city, index) => (
                                         <Pressable key={index} onPress={() => setSelectedCity(city)}>
                                             {({ pressed }) => (
@@ -198,7 +198,7 @@ export default Cities = () => {
                                             )}
                                         </Pressable>
                                     ))}
-                                </View>
+                                </ScrollView>
                             )}
                         </>
                     }

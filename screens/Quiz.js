@@ -7,32 +7,32 @@ import { ScrollView } from "react-native";
 
 const questions = [
     {
-        questionText: 'Which of the following years had the most residents with over 13 years of education in Stockholm?',
+        questionText: 'Which of the following years had the most people in the workforce in Stockholm?',
         answers: ["2019", "2021", "2022"],
         correctAnswerIndex: 2
     },
 
     {
-        questionText: 'Which of the following finnish cities has the highest migration rate?',
+        questionText: 'Which of the following Finnish cities has the highest migration rate?',
         answers: ["Helsinki", "Tampere", "Turku"],
         correctAnswerIndex: 0
     },
 
     {
-        questionText: 'Question 3',
-        answers: ["Answer 1", "Answer 2", "Answer 3"],
-        correctAnswerIndex: 0
+        questionText: 'Which year saw a decrease in working age population in Stavanger?',
+        answers: ["2020", "2021", "2022"],
+        correctAnswerIndex: 2
     },
 
     {
-        questionText: 'Question 4',
-        answers: ["Answer 1", "Answer 2", "Answer 3"],
-        correctAnswerIndex: 0
+        questionText: 'What is the only Icelandic city that you can learn about here?',
+        answers: ["Kopavogur", "Reykjavik", "Akureyri"],
+        correctAnswerIndex: 1
     },
 
     {
-        questionText: 'Question 5',
-        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        questionText: 'Which Danish city had the least residents with over 13 years of studies in 2022?',
+        answers: ["Odense", "Aalborg", "Aarhus"],
         correctAnswerIndex: 0
     },
 ]
@@ -89,7 +89,7 @@ export default Quiz = () => {
                 <Header />
                 <ScrollView>
                     {!isStart ?
-                        <View style={styles.container}>
+                        <View style={styles.quizStartContainer}>
                             <Text style={styles.header}>QUIZ</Text>
 
                             <Pressable onPress={() => setIsStart(true)}>
@@ -101,7 +101,7 @@ export default Quiz = () => {
                         :
                         quizCompleted ? results() :
                             <View>
-                                <Text style={styles.header}>{questions[questionIndex].questionText}</Text>
+                                <Text style={styles.quizQuestion}>{questions[questionIndex].questionText}</Text>
                                 <View style={styles.quizContainer}>
                                     {questions[questionIndex].answers.map((answer, index) => (
                                         <Pressable key={index}>
