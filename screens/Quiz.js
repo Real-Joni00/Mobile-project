@@ -13,7 +13,7 @@ const questions = [
     },
 
     {
-        questionText: 'Which of the following finnish cities has the highest migration rate?',
+        questionText: 'Which of the following Finnish cities has the highest migration rate?',
         answers: ["Helsinki", "Tampere", "Turku"],
         correctAnswerIndex: 0
     },
@@ -31,7 +31,7 @@ const questions = [
     },
 
     {
-        questionText: 'Which danish city had the least residents with over 13 years of studies in 2022',
+        questionText: 'Which Danish city had the least residents with over 13 years of studies in 2022',
         answers: ["Odense", "Aalborg", "Aarhus"],
         correctAnswerIndex: 0
     },
