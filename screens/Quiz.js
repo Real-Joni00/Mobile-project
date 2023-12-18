@@ -3,17 +3,18 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../components/Header.js'
 import styles from '../styles/style.js'
 import { useState } from "react";
+import { ScrollView } from "react-native";
 
 const questions = [
     {
-        questionText: 'Question 1',
-        answers: ["Answer 1", "Answer 2", "Answer 3"],
-        correctAnswerIndex: 0
+        questionText: 'Which of the following years had the most residents with over 13 years of education in Stockholm?',
+        answers: ["2019", "2021", "2022"],
+        correctAnswerIndex: 2
     },
 
     {
-        questionText: 'Question 2',
-        answers: ["Answer 1", "Answer 2", "Answer 3"],
+        questionText: 'Which of the following finnish cities has the highest migration rate?',
+        answers: ["Helsinki", "Tampere", "Turku"],
         correctAnswerIndex: 0
     },
 
@@ -45,11 +46,11 @@ export default Quiz = () => {
 
     const handleAnswerSelection = (selectedAnswerIndex) => {
         const currentQuestion = questions[questionIndex];
-    
+
         if (selectedAnswerIndex === currentQuestion.correctAnswerIndex) {
             setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1);
         }
-        
+
         // Move to the next question
         setQuestionIndex((prevQuestionIndex) => {
             if (prevQuestionIndex === questions.length - 1) {
@@ -68,9 +69,9 @@ export default Quiz = () => {
                 <Text style={styles.header}>Quiz completed!</Text>
                 <Text style={styles.quizResults}>You got {correctAnswers} out of {questions.length} questions right!</Text>
                 <Pressable onPress={() => [setQuestionIndex(0), setCorrectAnswers(0), setQuizCompleted(false), setIsStart(false)]}>
-                {({ pressed }) => (
-                    <Text style={[styles.quizStart, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]}>Restart</Text>
-                )}
+                    {({ pressed }) => (
+                        <Text style={[styles.quizStart, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]}>Restart</Text>
+                    )}
                 </Pressable>
             </View>
         )
@@ -86,34 +87,36 @@ export default Quiz = () => {
         >
             <>
                 <Header />
-                {!isStart ?
-                    <View style={styles.container}>
-                        <Text style={styles.header}>QUIZ</Text>
+                <ScrollView>
+                    {!isStart ?
+                        <View style={styles.container}>
+                            <Text style={styles.header}>QUIZ</Text>
 
-                        <Pressable onPress={() => setIsStart(true)}>
-                            {({ pressed }) => (
-                                <Text style={[styles.quizStart, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]}>START HERE</Text>
-                            )}
-                        </Pressable>
-                    </View>
-                    :
-                    quizCompleted ? results() :
-                        <View>
-                            <Text style={styles.header}>{questions[questionIndex].questionText}</Text>
-                            <View style={styles.quizContainer}>
-                                {questions[questionIndex].answers.map((answer, index) => (
-                                    <Pressable key={index}>
-                                        {({ pressed }) => (
-                                            <Text style={[styles.quizOptions, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]} onPress={() => handleAnswerSelection(index)}>
-                                                {answer}
-                                            </Text>
-                                        )}
-                                    </Pressable>
-                                ))}
-                            </View>
+                            <Pressable onPress={() => setIsStart(true)}>
+                                {({ pressed }) => (
+                                    <Text style={[styles.quizStart, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]}>START HERE</Text>
+                                )}
+                            </Pressable>
                         </View>
-                }
+                        :
+                        quizCompleted ? results() :
+                            <View>
+                                <Text style={styles.header}>{questions[questionIndex].questionText}</Text>
+                                <View style={styles.quizContainer}>
+                                    {questions[questionIndex].answers.map((answer, index) => (
+                                        <Pressable key={index}>
+                                            {({ pressed }) => (
+                                                <Text style={[styles.quizOptions, { color: pressed ? '#000000' : '#FFFFFF', borderColor: pressed ? '#000000' : '#FFFFFF' }]} onPress={() => handleAnswerSelection(index)}>
+                                                    {answer}
+                                                </Text>
+                                            )}
+                                        </Pressable>
+                                    ))}
+                                </View>
+                            </View>
+                    }
 
+                </ScrollView>
             </>
         </LinearGradient>
     )
