@@ -83,8 +83,7 @@ export default Password = ({ navigation }) => {
             value={newPassword}
             onChangeText={(newPassword) => setNewPassword(newPassword)}
             maxLength={40}
-            place
-            holderTextColor={'white'}
+            placeholderTextColor={'white'}
           />
           <Text style={styles.label}>Confirm new password</Text>
           <TextInput

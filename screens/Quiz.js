@@ -13,7 +13,7 @@ const questions = [
     },
 
     {
-        questionText: 'Which of the following finnish cities has the highest migration rate?',
+        questionText: 'Which of the following Finnish cities has the highest migration rate?',
         answers: ["Helsinki", "Tampere", "Turku"],
         correctAnswerIndex: 0
     },
