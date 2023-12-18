@@ -12,23 +12,14 @@ export default Marketing = ({ navigation }) => {
 	const [checkedEmail, setCheckedEmail] = useState(false)
 	const [checkedSMS, setCheckedSMS] = useState(false)
 
-	const handlePress = () => {
-		if (checkedEmail == true) {
-			setCheckedEmail(true)
-		} 
-		else if (checkedSMS == true) {
-			setCheckedSMS(true)
-		}
-		else if (checkedEmail == false) {
-			setCheckedEmail(false)
-		}
-		else if (checkedSMS == false)
-			setCheckedSMS(false)
-		else {
-			Alert.alert('Your marketing preferences saved successfully!')
-			navigation.navigate('LoggedUser')
-		}
-	}
+	// const handlePress = () => {
+	// 	if () {
+		
+	// 	else {
+	// 		Alert.alert('Your marketing preferences saved successfully!')
+	// 		navigation.navigate('LoggedUser')
+	// 	}
+	// }
 
   return (
     <LinearGradient
@@ -62,7 +53,7 @@ export default Marketing = ({ navigation }) => {
 						<Checkbox.Item label='Email' status={checkedEmail ? 'checked' : 'unchecked'} labelStyle={{color:'white', fontSize: 20}} uncheckedColor="white" onPress={() => setCheckedEmail(!checkedEmail)}/>
 						<Checkbox.Item label='SMS' status={checkedSMS ? 'checked' : 'unchecked'} labelStyle={{ color: 'white', fontSize: 20 }} uncheckedColor="white" onPress={() => setCheckedSMS(!checkedSMS)} />
 					</View>
-					<Pressable style={styles.button} onPress={handlePress}>
+          <Pressable style={styles.button} onPress={navigation.navigate('LoggedUser')}>
 						<Text style={styles.buttonText}>SAVE YOUR PREFERENCES</Text>
 					</Pressable>
         </ScrollView>
