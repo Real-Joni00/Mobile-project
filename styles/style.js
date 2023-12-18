@@ -128,11 +128,39 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
 
+  quizStartContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 100,
+    marginBottom: 10,
+  },
+
+  quizStart: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 15,
+    padding: 10,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+
   quizContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 10,
     marginBottom: 10,
+  },
+
+  quizQuestion: {
+    color: 'white',
+    fontSize: 26,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 20,
   },
 
   quizOptions: {
@@ -173,19 +201,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 60,
     marginBottom: 40
-  },
-
-  quizStart: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    borderWidth: 3,
-    borderColor: 'white',
-    borderRadius: 15,
-    padding: 10,
-    marginTop: 20,
-    marginBottom: 20,
   },
 
   label: {
