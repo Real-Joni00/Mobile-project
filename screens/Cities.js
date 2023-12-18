@@ -91,6 +91,7 @@ export default Cities = () => {
                 <>
                     <Header />
                     {!selectedCountry ?
+                    <ScrollView>
                         <View style={styles.flagContainer}>
                             <Pressable onPress={() => setSelectedCountry('Finland')} style={styles.flags}>
                                 {({ pressed }) => (
@@ -162,6 +163,7 @@ export default Cities = () => {
                                 )}
                             </Pressable>
                         </View>
+                    </ScrollView>
                         :
                         <>
 
@@ -179,7 +181,7 @@ export default Cities = () => {
                             </View>
 
                             {selectedCountry && citiesByCountry[selectedCountry] && (
-                                <View>
+                                <ScrollView>
                                     {citiesByCountry[selectedCountry].map((city, index) => (
                                         <Pressable key={index} onPress={() => setSelectedCity(city)}>
                                             {({ pressed }) => (
@@ -196,7 +198,7 @@ export default Cities = () => {
                                             )}
                                         </Pressable>
                                     ))}
-                                </View>
+                                </ScrollView>
                             )}
                         </>
                     }

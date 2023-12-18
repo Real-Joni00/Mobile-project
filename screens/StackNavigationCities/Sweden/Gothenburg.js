@@ -11,6 +11,9 @@ const Gothenburg = () => {
 
     const [gothenburgyearsstudied, setGothenburgyearsstudied] = useState([]);
     const [gothenburgworkingage, setGothenburgworkingage] = useState([]);
+    const [gothenburgmigration, setGothenburgmigration] = useState([]);
+    const [gothenburgemigration, setGothenburgemigration] = useState([]);
+    const [gothenburgworkforce, setGothenburgworkforce] = useState([]);
 
     const yearsstudiedGothenburg = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -127,6 +130,168 @@ const Gothenburg = () => {
         workingageGothenburg()
       }, [])
 
+      const migrationGothenburg = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "5"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "13"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setGothenburgmigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        migrationGothenburg()
+      }, [])
+
+      const emigrationGothenburg = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "5"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "17"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setGothenburgemigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        emigrationGothenburg()
+      }, [])
+
+      const workforceGothenburg = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-3NS_Tyollinen_tyovoima.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "512"
+                  ]
+                }
+              },
+              {
+                "code": "Ikä",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Sukupuoli",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setGothenburgworkforce(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        workforceGothenburg()
+      }, [])
+
     return (
         <>
             <LinearGradient
@@ -157,6 +322,36 @@ const Gothenburg = () => {
                                 style={styles.cityImages}
                             />
                         </View>
+                        <Text style={styles.cityTexts}>2017: <Text style={styles.cityData}>{gothenburgworkingage[0]}</Text>
+                          {"\n"}2018: <Text style={styles.cityData}>{gothenburgworkingage[1]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{gothenburgworkingage[2]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{gothenburgworkingage[3]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{gothenburgworkingage[4]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Migration</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{gothenburgmigration[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{gothenburgmigration[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{gothenburgmigration[2]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Emigration</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{gothenburgemigration[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{gothenburgemigration[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{gothenburgemigration[2]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Work force</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{gothenburgworkforce[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{gothenburgworkforce[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{gothenburgworkforce[2]}</Text>
+                        </Text>
                 </ScrollView>
             </LinearGradient>
         </>

@@ -11,6 +11,9 @@ const Stockholm = () => {
 
     const [stockholmyearsstudied, setStockholmyearsstudied] = useState([]);
     const [stockholmworkingage, setStockholmworkingage] = useState([]);
+    const [stockholmmigration, setStockholmmigration] = useState([]);
+    const [stockholmemigration, setStockholmemigration] = useState([]);
+    const [stockholmworkforce, setStockholmworkforce] = useState([]);
 
     const yearsstudiedStockholm = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -127,6 +130,168 @@ const Stockholm = () => {
         workingagepopulationStockholm()
       }, [])
 
+      const migrationStockholm = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "3"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "13"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setStockholmmigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        migrationStockholm()
+      }, [])
+
+      const emigrationStockholm = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "3"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "17"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setStockholmemigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        emigrationStockholm()
+      }, [])
+
+      const workforceStockholm = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/4_Tyomarkkinat/4-3NS_Tyollinen_tyovoima.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Ruotsi.agg",
+                  "values": [
+                    "3"
+                  ]
+                }
+              },
+              {
+                "code": "Ikä",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Sukupuoli",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "00"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setStockholmworkforce(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        workforceStockholm()
+      }, [])
+
     return (
         <>
             <LinearGradient
@@ -157,6 +322,36 @@ const Stockholm = () => {
                                 style={styles.cityImages}
                             />
                         </View>
+                        <Text style={styles.cityTexts}>2018: <Text style={styles.cityData}>{stockholmworkingage[0]}</Text>
+                          {"\n"}2019: <Text style={styles.cityData}>{stockholmworkingage[1]}</Text>
+                          {"\n"}2020: <Text style={styles.cityData}>{stockholmworkingage[2]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{stockholmworkingage[3]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{stockholmworkingage[4]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Migration</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{stockholmmigration[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{stockholmmigration[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{stockholmmigration[2]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Emigration</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{stockholmemigration[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{stockholmemigration[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{stockholmemigration[2]}</Text>
+                        </Text>
+                        <Text style={styles.citypgSubheaders}>Work force</Text>
+                        <View style={styles.cityImageView}>
+                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                        </View>
+                        <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{stockholmworkforce[0]}</Text>
+                          {"\n"}2021: <Text style={styles.cityData}>{stockholmworkforce[1]}</Text>
+                          {"\n"}2022: <Text style={styles.cityData}>{stockholmworkforce[2]}</Text>
+                        </Text>
                 </ScrollView>
             </LinearGradient>
         </>
