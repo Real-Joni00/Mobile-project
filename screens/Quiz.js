@@ -31,7 +31,7 @@ const questions = [
     },
 
     {
-        questionText: 'Which Danish city had the least residents with over 13 years of studies in 2022',
+        questionText: 'Which danish city had the least residents with over 13 years of studies in 2022',
         answers: ["Odense", "Aalborg", "Aarhus"],
         correctAnswerIndex: 0
     },
@@ -89,7 +89,7 @@ export default Quiz = () => {
                 <Header />
                 <ScrollView>
                     {!isStart ?
-                        <View style={styles.container}>
+                        <View style={styles.quizStartContainer}>
                             <Text style={styles.header}>QUIZ</Text>
 
                             <Pressable onPress={() => setIsStart(true)}>
@@ -101,7 +101,7 @@ export default Quiz = () => {
                         :
                         quizCompleted ? results() :
                             <View>
-                                <Text style={styles.header}>{questions[questionIndex].questionText}</Text>
+                                <Text style={styles.quizQuestion}>{questions[questionIndex].questionText}</Text>
                                 <View style={styles.quizContainer}>
                                     {questions[questionIndex].answers.map((answer, index) => (
                                         <Pressable key={index}>
