@@ -330,7 +330,9 @@ const Gothenburg = () => {
                         </Text>
                         <Text style={styles.citypgSubheaders}>Migration</Text>
                         <View style={styles.cityImageView}>
-                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                            <Image source={require('../Sweden/images/gothenburgmigration.jpg')} 
+                              style={styles.cityImages}
+                            />
                         </View>
                         <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{gothenburgmigration[0]}</Text>
                           {"\n"}2021: <Text style={styles.cityData}>{gothenburgmigration[1]}</Text>
@@ -338,7 +340,9 @@ const Gothenburg = () => {
                         </Text>
                         <Text style={styles.citypgSubheaders}>Emigration</Text>
                         <View style={styles.cityImageView}>
-                            <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                            <Image source={require('../Sweden/images/gothenburgemigration.jpg')} 
+                              style={styles.cityImages}
+                            />
                         </View>
                         <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{gothenburgemigration[0]}</Text>
                           {"\n"}2021: <Text style={styles.cityData}>{gothenburgemigration[1]}</Text>
