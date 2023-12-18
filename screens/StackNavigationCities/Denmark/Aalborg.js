@@ -10,6 +10,9 @@ import styles from '../../../styles/style';
 const Aalborg = () => {
 
     const [aalborgyearsstudied, setAalborgyearsstudied] = useState([]);
+    const [aalborgworkingage, setAalborgworkingage] = useState([]);
+    const [aalborgmigration, setAalborgmigration] = useState([]);
+    const [aalborgemigration, setAalborgemigration] = useState([]);
 
     const yearsstudiedAalborg = () => {
         fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/6_Koulutustaso/6-1NS_Vaeston_koulutus.px", {
@@ -64,6 +67,108 @@ const Aalborg = () => {
         yearsstudiedAalborg()
       }, [])
 
+      const migrationAalborg = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Tanska.agg",
+                  "values": [
+                    "5"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "13"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setAalborgmigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        migrationAalborg()
+      }, [])
+
+      const emigrationAalborg = () => {
+        fetch("https://stat.hel.fi:443/api/v1/fi/Nordstat/3_Vaestonmuutokset/3-1NS_Vaestonmuutokset.px", {
+          method: "POST",
+          body: JSON.stringify({
+            "query": [
+              {
+                "code": "Alue",
+                "selection": {
+                  "filter": "agg:Tanska.agg",
+                  "values": [
+                    "5"
+                  ]
+                }
+              },
+              {
+                "code": "Väestönmuutos",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "17"
+                  ]
+                }
+              },
+              {
+                "code": "Vuosi",
+                "selection": {
+                  "filter": "item",
+                  "values": [
+                    "2020",
+                    "2021",
+                    "2022"
+                  ]
+                }
+              }
+            ],
+            "response": {
+              "format": "json-stat"
+            }
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then((response) => response.json())
+          .then((json) => setAalborgemigration(json.dataset.value));
+      }
+  
+      useEffect(() => {
+        emigrationAalborg()
+      }, [])
+
     return (
         <>
             <LinearGradient
@@ -87,6 +192,22 @@ const Aalborg = () => {
                                     {"\n"}2020: <Text style={styles.cityData}>{aalborgyearsstudied[2]}</Text>
                                     {"\n"}2021: <Text style={styles.cityData}>{aalborgyearsstudied[3]}</Text>
                                     {"\n"}2022: <Text style={styles.cityData}>{aalborgyearsstudied[4]}</Text>
+                                </Text>
+                                <Text style={styles.citypgSubheaders}>Migration</Text>
+                                    <View style={styles.cityImageView}>
+                                        <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                                    </View>
+                                <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{aalborgmigration[0]}</Text>
+                                    {"\n"}2021: <Text style={styles.cityData}>{aalborgmigration[1]}</Text>
+                                    {"\n"}2022: <Text style={styles.cityData}>{aalborgmigration[2]}</Text>
+                                </Text>
+                                <Text style={styles.citypgSubheaders}>Emigration</Text>
+                                    <View style={styles.cityImageView}>
+                                        <Text style={styles.citypgSubheaders}>Kuva tähän</Text>
+                                    </View>
+                                <Text style={styles.cityTexts}>2020: <Text style={styles.cityData}>{aalborgemigration[0]}</Text>
+                                    {"\n"}2021: <Text style={styles.cityData}>{aalborgemigration[1]}</Text>
+                                    {"\n"}2022: <Text style={styles.cityData}>{aalborgemigration[2]}</Text>
                                 </Text>
                     </ScrollView>
             </LinearGradient>
