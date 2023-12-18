@@ -359,6 +359,7 @@ const Helsinki = () => {
             style={{ flex: 1 }}
         >
           <Header/>
+       
           <ScrollView style={styles.cityScrollview}>
                   <Text style={styles.cityText}>Helsinki</Text>
                   <Text style={styles.citypgSubheaders}>Residents with over 13 years of studies</Text>

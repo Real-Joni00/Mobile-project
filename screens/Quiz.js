@@ -31,7 +31,7 @@ const questions = [
     },
 
     {
-        questionText: 'Which danish city had the least residents with over 13 years of studies in 2022?',
+        questionText: 'Which Danish city had the least residents with over 13 years of studies in 2022?',
         answers: ["Odense", "Aalborg", "Aarhus"],
         correctAnswerIndex: 0
     },
